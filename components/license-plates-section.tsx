@@ -17,8 +17,8 @@ const governmentPlates = [
   },
   {
     code: "3",
-    name: "Landgräfen des hohen Berges",
-    description: "Das Kennzeichen \"3\" ist den Landgräfen des hohen Berges vorbehalten. Diese adlige Position repräsentiert einen der ältesten Adelstitel des Großherzogtums.",
+    name: "Landgräfin des hohen Berges",
+    description: "Das Kennzeichen \"3\" ist der Landgräfin des hohen Berges vorbehalten. Diese adlige Position repräsentiert einen der ältesten Adelstitel des Großherzogtums.",
     imageSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-5e6iZ76wZpraHeSJE2nEWP33W8DAHG.png",
     isGovernment: true
   }
