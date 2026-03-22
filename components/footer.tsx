@@ -10,7 +10,7 @@ export function Footer() {
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Wappen_Pfalzel-zKZ5zoehtW577lFxbZZ9qNKd12zBFV.png"
               alt="Wappen Pfalzel"
               className="mb-4"
-              style={{ width: '80px', height: 'auto' }}
+              style={{ width: '80px', height: '80px' }}
             />
             <h3 className="text-xl font-bold mb-2">Großherzogtum Pfalzel</h3>
             <p className="text-primary-foreground/70">

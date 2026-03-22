@@ -18,6 +18,7 @@ export function PlateExampleSection() {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/P-CM74-JeRaf4a2czzdGgUcvZ8QdAQ4DQkj1V.png"
                 alt="Beispiel Kennzeichen P-CM74"
                 className="rounded-lg max-w-md w-full"
+                style={{ height: 'auto' }}
               />
             </div>
             
