@@ -21,7 +21,8 @@ export function PlateExampleSection() {
                 alt="Beispiel Kennzeichen P-CM74"
                 width={500}
                 height={125}
-                className="rounded-lg w-full max-w-md h-auto"
+                className="rounded-lg max-w-md"
+                style={{ width: '100%', height: 'auto' }}
               />
             </div>
             

@@ -13,6 +13,7 @@ export function Footer() {
               width={80}
               height={96}
               className="mb-4"
+              style={{ width: '80px', height: 'auto' }}
             />
             <h3 className="text-xl font-bold mb-2">Großherzogtum Pfalzel</h3>
             <p className="text-primary-foreground/70">

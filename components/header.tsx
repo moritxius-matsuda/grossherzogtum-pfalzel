@@ -23,6 +23,9 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
+          <Link href="#flagge" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
+            Flagge
+          </Link>
           <Link href="#kennzeichen" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Kennzeichen
           </Link>
@@ -48,6 +51,13 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-border bg-background">
           <nav className="container mx-auto flex flex-col gap-4 px-4 py-6">
+            <Link 
+              href="#flagge" 
+              className="text-sm font-medium text-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Flagge
+            </Link>
             <Link 
               href="#kennzeichen" 
               className="text-sm font-medium text-foreground"

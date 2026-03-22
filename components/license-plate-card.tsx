@@ -20,14 +20,14 @@ export function LicensePlateCard({
     <Card className={`overflow-hidden transition-all hover:shadow-lg ${isGovernment ? 'border-2 border-primary' : ''}`}>
       <CardContent className="p-0">
         <div className="bg-muted p-4 flex justify-center min-h-28 items-center">
-          {imageSrc ? (
+          {imageSrc && imageSrc.length > 0 ? (
             <Image
               src={imageSrc}
               alt={`Kennzeichen ${code}`}
               width={400}
               height={100}
-              className="h-20 w-auto object-contain"
-              style={{ width: 'auto', height: 'auto', maxHeight: '5rem' }}
+              className="object-contain"
+              style={{ width: 'auto', height: '5rem' }}
             />
           ) : (
             <div className="h-20 flex items-center justify-center text-muted-foreground text-sm">
