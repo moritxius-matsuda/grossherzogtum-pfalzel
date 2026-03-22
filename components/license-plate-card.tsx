@@ -1,11 +1,10 @@
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 
 interface LicensePlateCardProps {
   code: string
   name: string
   description: string
-  imageSrc: string
+  imageSrc?: string
   isGovernment?: boolean
 }
 
@@ -20,14 +19,12 @@ export function LicensePlateCard({
     <Card className={`overflow-hidden transition-all hover:shadow-lg ${isGovernment ? 'border-2 border-primary' : ''}`}>
       <CardContent className="p-0">
         <div className="bg-muted p-4 flex justify-center min-h-28 items-center">
-          {imageSrc && imageSrc.length > 0 ? (
-            <Image
+          {imageSrc ? (
+            <img
               src={imageSrc}
               alt={`Kennzeichen ${code}`}
-              width={400}
-              height={100}
-              className="object-contain"
-              style={{ width: 'auto', height: '5rem' }}
+              className="object-contain max-w-full"
+              style={{ height: '5rem', width: 'auto' }}
             />
           ) : (
             <div className="h-20 flex items-center justify-center text-muted-foreground text-sm">

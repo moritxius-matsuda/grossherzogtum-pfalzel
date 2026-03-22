@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 export function PlateExampleSection() {
   return (
     <section className="py-20 bg-muted">
@@ -16,41 +14,51 @@ export function PlateExampleSection() {
         <div className="flex justify-center">
           <div className="bg-card rounded-lg shadow-xl p-8 max-w-3xl w-full">
             <div className="flex justify-center mb-8">
-              <Image
+              <img
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/P-CM74-JeRaf4a2czzdGgUcvZ8QdAQ4DQkj1V.png"
                 alt="Beispiel Kennzeichen P-CM74"
-                width={500}
-                height={125}
-                className="rounded-lg max-w-md"
-                style={{ width: '100%', height: 'auto' }}
+                className="rounded-lg max-w-md w-full"
               />
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div className="p-4 bg-secondary rounded-lg border border-border">
-                <div className="text-xl font-bold text-foreground mb-2">Flagge</div>
-                <p className="text-sm text-muted-foreground">
-                  Die Nationalflagge mit dem Pfalzeler Wappen identifiziert das Fahrzeug als im Großherzogtum registriert
+            <div className="grid grid-cols-4 gap-2 md:gap-4">
+              <div className="flex flex-col items-center">
+                <div className="w-full h-1 bg-primary rounded-full mb-3"></div>
+                <div className="text-lg md:text-xl font-bold text-foreground mb-1">Flagge</div>
+                <p className="text-xs md:text-sm text-muted-foreground text-center">
+                  Nationalflagge
                 </p>
               </div>
-              <div className="p-4 bg-secondary rounded-lg border border-border">
-                <div className="text-xl font-bold text-foreground mb-2">P</div>
-                <p className="text-sm text-muted-foreground">
-                  Regionskürzel für die Pfalzeler Hauptstadt
+              <div className="flex flex-col items-center">
+                <div className="w-full h-1 bg-primary rounded-full mb-3"></div>
+                <div className="text-lg md:text-xl font-bold text-foreground mb-1">P</div>
+                <p className="text-xs md:text-sm text-muted-foreground text-center">
+                  Region
                 </p>
               </div>
-              <div className="p-4 bg-secondary rounded-lg border border-border">
-                <div className="text-xl font-bold text-foreground mb-2">CM</div>
-                <p className="text-sm text-muted-foreground">
-                  Individuelle Buchstabenkombination des Fahrzeughalters
+              <div className="flex flex-col items-center">
+                <div className="w-full h-1 bg-primary rounded-full mb-3"></div>
+                <div className="text-lg md:text-xl font-bold text-foreground mb-1">CM</div>
+                <p className="text-xs md:text-sm text-muted-foreground text-center">
+                  Buchstaben
                 </p>
               </div>
-              <div className="p-4 bg-secondary rounded-lg border border-border">
-                <div className="text-xl font-bold text-foreground mb-2">74</div>
-                <p className="text-sm text-muted-foreground">
-                  Fortlaufende Nummer zur eindeutigen Identifikation
+              <div className="flex flex-col items-center">
+                <div className="w-full h-1 bg-primary rounded-full mb-3"></div>
+                <div className="text-lg md:text-xl font-bold text-foreground mb-1">74</div>
+                <p className="text-xs md:text-sm text-muted-foreground text-center">
+                  Nummer
                 </p>
               </div>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-border">
+              <ul className="grid md:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                <li><span className="font-semibold text-foreground">Flagge:</span> Nationalflagge mit dem Pfalzeler Wappen</li>
+                <li><span className="font-semibold text-foreground">P:</span> Regionskürzel der Pfalzeler Hauptstadt</li>
+                <li><span className="font-semibold text-foreground">CM:</span> Individuelle Buchstabenkombination</li>
+                <li><span className="font-semibold text-foreground">74:</span> Fortlaufende Identifikationsnummer</li>
+              </ul>
             </div>
           </div>
         </div>

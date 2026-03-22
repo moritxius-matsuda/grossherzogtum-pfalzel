@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 export function Footer() {
@@ -7,11 +6,9 @@ export function Footer() {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-12">
           <div>
-            <Image
+            <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Wappen_Pfalzel-zKZ5zoehtW577lFxbZZ9qNKd12zBFV.png"
               alt="Wappen Pfalzel"
-              width={80}
-              height={96}
               className="mb-4"
               style={{ width: '80px', height: 'auto' }}
             />
