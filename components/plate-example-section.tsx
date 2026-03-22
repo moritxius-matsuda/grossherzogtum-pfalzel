@@ -21,31 +21,31 @@ export function PlateExampleSection() {
                 alt="Beispiel Kennzeichen P-CM74"
                 width={500}
                 height={125}
-                className="rounded-lg"
+                className="rounded-lg w-full max-w-md h-auto"
               />
             </div>
             
-            <div className="grid md:grid-cols-4 gap-6 text-center">
-              <div className="p-4 bg-muted rounded-lg">
-                <div className="text-2xl font-bold text-primary mb-2">Flagge</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div className="p-4 bg-secondary rounded-lg border border-border">
+                <div className="text-xl font-bold text-foreground mb-2">Flagge</div>
                 <p className="text-sm text-muted-foreground">
                   Die Nationalflagge mit dem Pfalzeler Wappen identifiziert das Fahrzeug als im Großherzogtum registriert
                 </p>
               </div>
-              <div className="p-4 bg-muted rounded-lg">
-                <div className="text-2xl font-bold text-primary mb-2">P</div>
+              <div className="p-4 bg-secondary rounded-lg border border-border">
+                <div className="text-xl font-bold text-foreground mb-2">P</div>
                 <p className="text-sm text-muted-foreground">
                   Regionskürzel für die Pfalzeler Hauptstadt
                 </p>
               </div>
-              <div className="p-4 bg-muted rounded-lg">
-                <div className="text-2xl font-bold text-primary mb-2">CM</div>
+              <div className="p-4 bg-secondary rounded-lg border border-border">
+                <div className="text-xl font-bold text-foreground mb-2">CM</div>
                 <p className="text-sm text-muted-foreground">
                   Individuelle Buchstabenkombination des Fahrzeughalters
                 </p>
               </div>
-              <div className="p-4 bg-muted rounded-lg">
-                <div className="text-2xl font-bold text-primary mb-2">74</div>
+              <div className="p-4 bg-secondary rounded-lg border border-border">
+                <div className="text-xl font-bold text-foreground mb-2">74</div>
                 <p className="text-sm text-muted-foreground">
                   Fortlaufende Nummer zur eindeutigen Identifikation
                 </p>

@@ -34,7 +34,8 @@ const regionalPlates = [
   {
     code: "PW",
     name: "Pfalzeler Wald",
-    description: "\"PW\" bezeichnet den Pfalzeler Wald, ein ausgedehntes Waldgebiet im Herzen des Großherzogtums. Diese Region ist bekannt für ihre natürliche Schönheit und historische Forstwirtschaft."
+    description: "\"PW\" bezeichnet den Pfalzeler Wald, ein ausgedehntes Waldgebiet im Herzen des Großherzogtums. Diese Region ist bekannt für ihre natürliche Schönheit und historische Forstwirtschaft.",
+    imageSrc: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PW-1-EGEBiZrbbiCAbD9V8k1jhSdcpwyUDK.png"
   },
   {
     code: "BW",
