@@ -35,6 +35,14 @@ export function Header() {
           <Link href="#ueber" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Über uns
           </Link>
+          <a
+            href="https://govid.großherzogtum-pfalzel.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2 inline-flex items-center gap-1.5 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+          >
+            GovID
+          </a>
         </nav>
 
         <Button
@@ -79,6 +87,15 @@ export function Header() {
             >
               Über uns
             </Link>
+            <a
+              href="https://govid.großherzogtum-pfalzel.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              GovID
+            </a>
           </nav>
         </div>
       )}
