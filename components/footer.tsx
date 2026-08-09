@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function Footer() {
   return (
-    <footer id="ueber" className="bg-primary text-primary-foreground">
+    <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-12">
           <div>
@@ -14,29 +14,33 @@ export function Footer() {
             />
             <h3 className="text-xl font-bold mb-2">Großherzogtum Pfalzel</h3>
             <p className="text-primary-foreground/70">
-              Offizielle Website der Regierung des Großherzogtums Pfalzel.
+              Offizielle Website des Großherzogtums Pfalzel.
             </p>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4">Navigation</h4>
-            <nav className="flex flex-col gap-2">
-              <Link href="#kennzeichen" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                Kennzeichensystem
-              </Link>
-              <Link href="#regionen" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                Regionen
-              </Link>
-            </nav>
+            <h4 className="font-bold mb-4">Kontakt</h4>
+            <div className="space-y-2 text-primary-foreground/70 text-sm">
+              <p>Pfalzstraße 12, 67433 Pfalzel</p>
+              <p>+49 (0) 67433 123456</p>
+              <p>info@pfalzel.gov</p>
+            </div>
           </div>
 
           <div>
-            <h4 className="font-bold mb-4">Sprachen / Languages</h4>
-            <div className="flex flex-col gap-1 text-primary-foreground/70">
-              <span>Deutsch</span>
-              <span>English</span>
-              <span>Français</span>
-            </div>
+            <h4 className="font-bold mb-4">Links</h4>
+            <nav className="flex flex-col gap-2 text-primary-foreground/70 text-sm">
+              <Link href="#ueber" className="hover:text-primary-foreground transition-colors">
+                Über uns
+              </Link>
+              <Link href="#kennzeichen" className="hover:text-primary-foreground transition-colors">
+                Kennzeichensystem
+              </Link>
+              <Link href="#regionen" className="hover:text-primary-foreground transition-colors">
+                Regionen
+              </Link>
+              <span>Impressum | Datenschutz</span>
+            </nav>
           </div>
         </div>
 
