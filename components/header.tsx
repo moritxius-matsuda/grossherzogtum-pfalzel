@@ -32,7 +32,7 @@ export function Header() {
           <Link href="#regionen" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Regionen
           </Link>
-          <Link href="/regierungsbehorden" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
+          <Link href="https://groherzogtum-pfalzel.vercel.app/regierungsbehorden" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Regierungsbehörden
           </Link>
           <Link href="#ueber" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
@@ -84,7 +84,7 @@ export function Header() {
               Regionen
             </Link>
             <Link 
-              href="/regierungsbehorden" 
+              href="https://groherzogtum-pfalzel.vercel.app/regierungsbehorden" 
               className="text-sm font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >

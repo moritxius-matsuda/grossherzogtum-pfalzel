@@ -182,9 +182,21 @@ export default function RegierungsbehordenPage() {
           {ministries.map((agency) => (
             <article key={agency.abbreviation} className="rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg">
               <div className="flex items-center justify-between mb-4 gap-4">
-                <div>
-                  <h3 className="text-lg font-semibold">{agency.title}</h3>
-                  <p className="text-sm text-muted-foreground">{agency.english}</p>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-muted p-3">
+                    <Image
+                      src={agency.logo}
+                      alt={`Logo ${agency.abbreviation}`}
+                      width={56}
+                      height={56}
+                      className="h-full w-auto object-contain"
+                      priority
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">{agency.title}</h3>
+                    <p className="text-sm text-muted-foreground">{agency.english}</p>
+                  </div>
                 </div>
                 <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground">
                   {agency.abbreviation}
