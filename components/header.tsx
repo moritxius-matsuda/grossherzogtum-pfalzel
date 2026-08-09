@@ -32,6 +32,9 @@ export function Header() {
           <Link href="#regionen" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Regionen
           </Link>
+          <Link href="/regierungsbehorden" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
+            Regierungsbehörden
+          </Link>
           <Link href="#ueber" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Über uns
           </Link>
@@ -79,6 +82,13 @@ export function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Regionen
+            </Link>
+            <Link 
+              href="/regierungsbehorden" 
+              className="text-sm font-medium text-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Regierungsbehörden
             </Link>
             <Link 
               href="#ueber" 
