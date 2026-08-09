@@ -23,19 +23,19 @@ export function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="#flagge" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
+          <Link href="/#flagge" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Flagge
           </Link>
-          <Link href="#kennzeichen" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
+          <Link href="/#kennzeichen" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Kennzeichen
           </Link>
-          <Link href="#regionen" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
+          <Link href="/#regionen" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Regionen
           </Link>
           <Link href="https://groherzogtum-pfalzel.vercel.app/regierungsbehorden" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Regierungsbehörden
           </Link>
-          <Link href="#ueber" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
+          <Link href="/#ueber" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">
             Über uns
           </Link>
           <a
@@ -91,7 +91,7 @@ export function Header() {
               Regierungsbehörden
             </Link>
             <Link 
-              href="#ueber" 
+              href="/#ueber" 
               className="text-sm font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >

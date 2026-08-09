@@ -180,37 +180,35 @@ export default function RegierungsbehordenPage() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {ministries.map((agency) => (
-            <article key={agency.abbreviation} className="rounded-3xl border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg">
-              <div className="flex items-center justify-between mb-4 gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-muted p-3">
-                    <Image
-                      src={agency.logo}
-                      alt={`Logo ${agency.abbreviation}`}
-                      width={56}
-                      height={56}
-                      className="h-full w-auto object-contain"
-                      priority
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">{agency.title}</h3>
-                    <p className="text-sm text-muted-foreground">{agency.english}</p>
-                  </div>
-                </div>
+            <article key={agency.abbreviation} className="rounded-[2rem] border border-border bg-card p-6 shadow-sm transition-shadow hover:shadow-lg">
+              <div className="flex h-28 items-center justify-center rounded-3xl bg-muted p-4 mb-6">
+                <Image
+                  src={agency.logo}
+                  alt={`Logo ${agency.title}`}
+                  width={150}
+                  height={150}
+                  className="h-full w-auto object-contain"
+                  priority
+                />
+              </div>
+              <div className="mb-4 text-center">
+                <h3 className="text-xl font-semibold">{agency.title}</h3>
+                <p className="text-sm text-muted-foreground">{agency.english}</p>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">{agency.description}</p>
+              <div className="flex items-center justify-between gap-4">
                 <span className="rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground">
                   {agency.abbreviation}
                 </span>
+                <Link
+                  href={`https://${agency.abbreviation.toLowerCase()}.pfalzel.gd`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/90"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {agency.abbreviation.toLowerCase()}.pfalzel.gd
+                </Link>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">{agency.description}</p>
-              <Link
-                href={`https://${agency.abbreviation.toLowerCase()}.pfalzel.gd`}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/90"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {agency.abbreviation.toLowerCase()}.pfalzel.gd
-              </Link>
             </article>
           ))}
         </div>
