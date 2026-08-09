@@ -1,3 +1,4 @@
+import { Header } from "@/components/header"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -31,90 +32,105 @@ const ministries = [
     abbreviation: "GMI",
     english: "Grand Ducal Ministry of the Interior",
     description: "Sorgt für die innere Sicherheit, Ordnung und die Verwaltung des Landes.",
+    logo: "/images/regierungsbehoerden/Logo_GMI.png",
   },
   {
     title: "Großherzogliches Ministerium für Auswärtige Angelegenheiten",
     abbreviation: "GMAA",
     english: "Grand Ducal Ministry of Foreign Affairs",
     description: "Vertritt die Interessen des Großherzogtums auf der internationalen Bühne und pflegt diplomatische Beziehungen.",
+    logo: "/images/regierungsbehoerden/Logo_GMAA.png",
   },
   {
     title: "Ministerium der Finanzen",
     abbreviation: "MF",
     english: "Ministry of Finance",
     description: "Verwaltet die Staatskasse und ist für den Haushalt, Steuern sowie die finanzielle Stabilität zuständig.",
+    logo: "/images/regierungsbehoerden/Logo_MF.png",
   },
   {
     title: "Ministerium der Justiz",
     abbreviation: "MJ",
     english: "Ministry of Justice",
     description: "Garantiert die Einhaltung der Gesetze, leitet das Gerichtswesen und wacht über den Rechtsstaat.",
+    logo: "/images/regierungsbehoerden/Logo_MJ.png",
   },
   {
     title: "Ministerium der Verteidigung",
     abbreviation: "MV",
     english: "Ministry of Defence",
     description: "Verantwortet die äußere Sicherheit des Landes und führt die Streitkräfte.",
+    logo: "/images/regierungsbehoerden/Logo_MV.png",
   },
   {
     title: "Ministerium für Verkehr und Bau",
     abbreviation: "MVB",
     english: "Ministry of Transport and Infrastructure",
     description: "Plant und baut Straßen, Schienen sowie die physische Mobilität der Zukunft.",
+    logo: "/images/regierungsbehoerden/Logo_MVB.png",
   },
   {
     title: "Ministerium für Bildung und Forschung",
     abbreviation: "MBF",
     english: "Ministry of Education and Research",
     description: "Fördert Bildung von der Schule bis zur Hochschule und treibt wissenschaftliche Innovationen voran.",
+    logo: "/images/regierungsbehoerden/Logo_MBF.png",
   },
   {
     title: "Ministerium für Gesundheit",
     abbreviation: "MG",
     english: "Ministry of Health",
     description: "Sorgt für die medizinische Versorgung der Bevölkerung und das öffentliche Gesundheitswesen.",
+    logo: "/images/regierungsbehoerden/Logo_MG.png",
   },
   {
     title: "Hofministerium",
     abbreviation: "GDC",
     english: "Ministry of the Grand Ducal Court",
     description: "Organisiert die Angelegenheiten des Großherzogs und verbindet die Krone mit den staatlichen Institutionen.",
+    logo: "/images/regierungsbehoerden/Logo_GDC.png",
   },
   {
     title: "Ministerium für Wirtschaft und Energie",
     abbreviation: "MWE",
     english: "Ministry of Economic Affairs and Energy",
     description: "Stärkt die heimische Wirtschaft, fördert Unternehmen und sichert die Energieversorgung.",
+    logo: "/images/regierungsbehoerden/Logo_MWE.png",
   },
   {
     title: "Ministerium für Heimat- und Zivilschutz",
     abbreviation: "MHZS",
     english: "Ministry of Homeland and Civil Protection",
     description: "Schützt die Bevölkerung vor Katastrophen, Notlagen und Störungen des öffentlichen Lebens.",
+    logo: "/images/regierungsbehoerden/Logo_MHZS.png",
   },
   {
     title: "Ministerium für Umwelt und Landwirtschaft",
     abbreviation: "MUL",
     english: "Ministry of Environment and Agriculture",
     description: "Wahrt die natürlichen Lebensgrundlagen, schützt das Klima und fördert eine nachhaltige Landwirtschaft.",
+    logo: "/images/regierungsbehoerden/Logo_MUL.png",
   },
   {
     title: "Ministerium für Arbeit und Soziales",
     abbreviation: "MAS",
     english: "Ministry of Labour and Social Affairs",
     description: "Kümmert sich um faire Arbeitsbedingungen, den Arbeitsmarkt und die soziale Absicherung.",
+    logo: "/images/regierungsbehoerden/Logo_MAS.png",
   },
   {
     title: "Ministerium für Familie und Jugend",
     abbreviation: "MFJ",
     english: "Ministry of Family and Youth",
     description: "Unterstützt Familien, fördert Kinder und schafft Rahmenbedingungen für die jüngere Generation.",
+    logo: "/images/regierungsbehoerden/Logo_MFJ.png",
   },
 ]
 
 export default function RegierungsbehordenPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <Header />
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Regierungsbehörden des Großherzogtums</h1>
