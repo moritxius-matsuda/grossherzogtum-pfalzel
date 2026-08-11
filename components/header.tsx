@@ -2,29 +2,113 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+
+const TRANSLATE_STORAGE_KEY = "pfalzel-translation-state"
+const originalTextMap = new WeakMap<Node, string>()
+
+function getTranslatableTextNodes(root: ParentNode | null) {
+  if (!root) return [] as Text[]
+
+  const nodes: Text[] = []
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+
+  while (walker.nextNode()) {
+    const node = walker.currentNode as Text
+    const parent = node.parentElement
+
+    if (!node.textContent?.trim()) continue
+    if (!parent) continue
+    if (parent.closest("script, style, noscript, svg, path, code, pre, textarea, input, select, option")) continue
+
+    nodes.push(node)
+  }
+
+  return nodes
+}
+
+async function translateText(text: string, targetLanguage: string) {
+  if (!text.trim() || targetLanguage === "de") return text
+
+  const url = new URL("https://api.mymemory.translated.net/get")
+  url.searchParams.set("q", text)
+  url.searchParams.set("langpair", `de|${targetLanguage}`)
+
+  const response = await fetch(url.toString())
+  if (!response.ok) return text
+
+  const data = await response.json()
+  return data?.responseData?.translatedText || text
+}
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [translateEnabled, setTranslateEnabled] = useState(false)
   const [translateLanguage, setTranslateLanguage] = useState("en")
 
-  const handleTranslateToggle = () => {
-    const nextState = !translateEnabled
-    setTranslateEnabled(nextState)
-
+  useEffect(() => {
     if (typeof window === "undefined") return
 
-    const targetUrl = new URL("https://translate.google.com/translate")
-    targetUrl.searchParams.set("sl", "auto")
-    targetUrl.searchParams.set("tl", translateLanguage)
-    targetUrl.searchParams.set("u", window.location.href)
-
-    if (nextState) {
-      window.open(targetUrl.toString(), "_blank", "noopener,noreferrer")
+    try {
+      const saved = window.localStorage.getItem(TRANSLATE_STORAGE_KEY)
+      if (saved) {
+        const parsed = JSON.parse(saved)
+        if (typeof parsed.enabled === "boolean") setTranslateEnabled(parsed.enabled)
+        if (typeof parsed.language === "string") setTranslateLanguage(parsed.language)
+      }
+    } catch {
+      // Ignore invalid stored data.
     }
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    try {
+      window.localStorage.setItem(
+        TRANSLATE_STORAGE_KEY,
+        JSON.stringify({ enabled: translateEnabled, language: translateLanguage }),
+      )
+    } catch {
+      // Ignore storage errors.
+    }
+
+    const root = document.body
+    if (!root) return
+
+    const nodes = getTranslatableTextNodes(root)
+
+    const applyTranslation = async () => {
+      for (const node of nodes) {
+        const originalText = originalTextMap.get(node) ?? node.textContent ?? ""
+        if (!originalText.trim()) continue
+
+        if (!originalTextMap.has(node)) {
+          originalTextMap.set(node, originalText)
+        }
+
+        if (!translateEnabled) {
+          node.textContent = originalTextMap.get(node) ?? originalText
+          continue
+        }
+
+        if (translateLanguage === "de") {
+          node.textContent = originalText
+          continue
+        }
+
+        const translated = await translateText(originalText, translateLanguage)
+        node.textContent = translated
+      }
+    }
+
+    void applyTranslation()
+  }, [translateEnabled, translateLanguage])
+
+  const handleTranslateToggle = () => {
+    setTranslateEnabled((value) => !value)
   }
 
   return (
