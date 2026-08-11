@@ -6,12 +6,6 @@ export function Footer() {
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-12">
           <div>
-            <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Wappen_Pfalzel-zKZ5zoehtW577lFxbZZ9qNKd12zBFV.png"
-              alt="Wappen Pfalzel"
-              className="mb-4"
-              style={{ width: '80px', height: '80px' }}
-            />
             <h3 className="text-xl font-bold mb-2">Großherzogtum Pfalzel</h3>
             <p className="text-primary-foreground/70">
               Offizielle Website des Großherzogtums Pfalzel.
