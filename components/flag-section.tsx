@@ -18,7 +18,7 @@ export function FlagSection() {
           <div className="flex justify-center">
             <div className="relative">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Flagge%20Pfalzel-UThGeuXGDx9K3DvbdcoARLhkssar8X.png"
+                src="/pfalzel_flagge.png"
                 alt="Flagge des Großherzogtums Pfalzel"
                 width={500}
                 height={303}
