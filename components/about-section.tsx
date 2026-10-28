@@ -97,7 +97,7 @@ export function AboutSection() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="rounded-3xl bg-card p-8 border border-border">
               <h3 className="text-2xl font-semibold text-foreground mb-4">
-                Die Geschichte der Pfalzel
+                Die Geschichte von Pfalzel
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Entdecken Sie die Wurzeln, die Identität und die Zukunft des Großherzogtums Pfalzel. Unsere Geschichte ist ein Zeichen des Friedens, der Freiheit und eines neuen nationalen Selbstbewusstseins.
