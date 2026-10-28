@@ -15,9 +15,9 @@ export function Footer() {
           <div>
             <h4 className="font-bold mb-4">Kontakt</h4>
             <div className="space-y-2 text-primary-foreground/70 text-sm">
-              <p>Pfalzstraße 12, 67433 Pfalzel</p>
-              <p>+49 (0) 67433 123456</p>
-              <p>info@pfalzel.gov</p>
+              <p></p>
+              <p>+49 651 63 5555 9000</p>
+              <p>info@pfalzel.gd</p>
             </div>
           </div>
 
