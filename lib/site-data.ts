@@ -8,7 +8,7 @@ export const nav = [
   { href: "/kennzeichen", label: "Kennzeichen" },
 ] as const
 
-export const GOVID_URL = "https://govid.großherzogtum-pfalzel.de"
+export const GOVID_URL = "https://govid.pfalzel.gd"
 export const FOUNDING_DATE = { day: 9, month: 5, year: 2026 } // 9. Mai 2026
 
 export const facts = [
