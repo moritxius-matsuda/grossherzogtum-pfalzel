@@ -8,6 +8,7 @@ import { Crest } from "./crest"
 import { ThemeToggle } from "./theme-toggle"
 import { LanguageMenu } from "./language-menu"
 import { CommandSearch } from "./command-search"
+import { OfficialBanner } from "./official-banner"
 import { GOVID_URL, nav } from "@/lib/site-data"
 
 export function SiteHeader() {
@@ -37,6 +38,7 @@ export function SiteHeader() {
   return (
     <>
       <div className="flag-rule" aria-hidden />
+      <OfficialBanner />
       <header
         className={`sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow] ${
           scrolled || menuOpen
