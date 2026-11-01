@@ -24,6 +24,7 @@ const pages = [
   { href: "/regionen", label: "Regionen", icon: MapPin, keywords: "gebiete karte" },
   { href: "/kennzeichen", label: "Kennzeichensystem", icon: Car, keywords: "auto fahrzeug" },
   { href: "/kennzeichen#konfigurator", label: "Kennzeichen-Konfigurator", icon: Car, keywords: "prüfen erstellen" },
+  { href: "/impressum", label: "Impressum", icon: Landmark, keywords: "kontakt anbieter rechtliches" },
 ]
 
 export function CommandSearch({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {

@@ -386,3 +386,13 @@ export const contact = {
   phone: "+49 651 63 5555 9000",
   mail: "info@pfalzel.gd",
 }
+
+// Angaben gemäß § 5 DDG (übernommen von mal.lu)
+export const imprint = {
+  name: "Moritz Béla Meier",
+  street: "Pfalzeler Str. 5",
+  city: "54293 Trier",
+  country: "Deutschland",
+  phone: "+49 651 6860593",
+  mail: "moritz@mal.lu",
+}
