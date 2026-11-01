@@ -26,7 +26,7 @@ export default function RegierungPage() {
 
         {/* Organigramm */}
         <div className="mt-12">
-          <OrganCard organ={duke} highlight className="mx-auto max-w-md" />
+          <OrganCard organ={duke} highlight className="mx-auto max-w-2xl" />
           <div className="mx-auto h-10 w-px bg-line" aria-hidden />
           <div className="relative grid gap-4 md:grid-cols-2">
             <div className="absolute inset-x-1/4 -top-px hidden h-px bg-line md:block" aria-hidden />
@@ -70,12 +70,12 @@ function OrganCard({
       href={authorityUrl(organ)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group flex items-center gap-5 rounded-2xl border p-5 transition-shadow hover:shadow-lg ${
+      className={`group flex flex-col gap-5 rounded-2xl border p-5 transition-shadow hover:shadow-lg sm:flex-row sm:items-center ${
         highlight ? "border-gold bg-gold/15" : "border-line bg-card"
       } ${className}`}
     >
-      <div className="flex size-20 shrink-0 items-center justify-center rounded-xl bg-white p-2 ring-1 ring-black/5">
-        <Image src={organ.logo} alt="" width={80} height={80} className="h-full w-auto object-contain" />
+      <div className="flex shrink-0 items-center justify-center rounded-xl bg-white px-4 py-3 ring-1 ring-black/5 sm:w-52">
+        <Image src={organ.logo} alt="" width={2500} height={666} className="h-auto w-full" />
       </div>
       <div className="min-w-0">
         <p className="text-xs font-bold tracking-wider text-gold-ink">{organ.abbreviation}</p>

@@ -61,15 +61,12 @@ export function AuthorityDirectory() {
               rel="noopener noreferrer"
               className="group flex h-full flex-col p-6 transition-colors hover:bg-paper-2/60"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex size-16 items-center justify-center rounded-xl bg-white p-2 ring-1 ring-black/5">
-                  <Image src={a.logo} alt="" width={64} height={64} className="h-full w-auto object-contain" />
-                </div>
-                <span className="rounded-full border border-line px-2.5 py-1 text-xs font-bold tracking-wider">
-                  {a.abbreviation}
-                </span>
+              {/* Die Logos sind Querformate (ca. 15 : 4) – daher über die volle Kachelbreite */}
+              <div className="flex items-center justify-center rounded-xl bg-white px-4 py-3 ring-1 ring-black/5">
+                <Image src={a.logo} alt="" width={2500} height={666} className="h-auto w-full" />
               </div>
-              <h3 className="mt-5 font-serif text-xl font-medium leading-snug tracking-tight">{a.title}</h3>
+              <p className="mt-5 text-xs font-bold tracking-wider text-gold-ink">{a.abbreviation}</p>
+              <h3 className="mt-1 font-serif text-xl font-medium leading-snug tracking-tight">{a.title}</h3>
               <p className="mt-1 text-xs text-ink-soft">{a.english}</p>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">{a.description}</p>
               <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-ink">
