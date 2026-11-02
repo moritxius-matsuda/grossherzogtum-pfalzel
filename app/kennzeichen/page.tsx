@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Crown } from "lucide-react"
-import { Plate } from "@/components/site/plate"
+import { KennzeichenBild } from "@/components/site/kennzeichen"
 import { PlateBuilder } from "@/components/site/plate-builder"
 import { PageHero, SectionHeading } from "@/components/site/section-heading"
 import { governmentPlates, regions } from "@/lib/site-data"
@@ -12,10 +12,11 @@ export const metadata: Metadata = {
 }
 
 const anatomy = [
-  { part: "Flagge", label: "Nationalflagge mit dem Pfalzeler Wappen" },
+  { part: "PF", label: "Länderkennung mit der Nationalflagge" },
   { part: "P", label: "Regionalkürzel – hier die Hauptstadt" },
-  { part: "CM", label: "Individuelle Buchstabenkombination" },
-  { part: "74", label: "Fortlaufende Identifikationsnummer" },
+  { part: "Wappen", label: "Landeswappen mit dem Namen der Region" },
+  { part: "611", label: "Dreistellige Nummer" },
+  { part: "IY", label: "Zwei Buchstaben" },
 ]
 
 export default function KennzeichenPage() {
@@ -28,12 +29,12 @@ export default function KennzeichenPage() {
       />
 
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <SectionHeading eyebrow="Aufbau" title="Ein Kennzeichen in vier Teilen" />
+        <SectionHeading eyebrow="Aufbau" title="Ein Kennzeichen in fünf Teilen" />
         <div className="mt-12 rounded-2xl border border-line bg-card p-6 sm:p-10">
-          <div className="overflow-x-auto pb-2 text-center">
-            <Plate region="P" letters="CM" number="74" className="text-[2.6rem] sm:text-[5rem]" />
+          <div className="mx-auto max-w-3xl">
+            <KennzeichenBild kennzeichen={{ region: "P", nummer: "611", buchstaben: "IY" }} />
           </div>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {anatomy.map((a, i) => (
               <li key={a.part} className="border-t-4 border-gold pt-4">
                 <span className="text-xs tabular-nums text-ink-soft">0{i + 1}</span>
@@ -50,7 +51,7 @@ export default function KennzeichenPage() {
           <SectionHeading
             eyebrow="Konfigurator"
             title="Stellen Sie Ihr Kennzeichen zusammen"
-            intro="Wählen Sie eine Region, Buchstaben und eine Nummer. Die Regeln werden live geprüft."
+            intro="Wählen Sie eine Region, drei Ziffern und zwei Buchstaben – oder ein Sonderkennzeichen wie „M 213“. Die Regeln werden live geprüft."
           />
           <div className="mt-10">
             <PlateBuilder />
@@ -68,8 +69,9 @@ export default function KennzeichenPage() {
           {governmentPlates.map((p) => (
             <article key={p.code} className="overflow-hidden rounded-2xl border border-line bg-card">
               <div className="flex h-36 items-center justify-center bg-ink p-6">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.plate} alt={`Kennzeichen ${p.code}`} className="h-14 w-auto" />
+                <div className="w-full max-w-xs">
+                  <KennzeichenBild kennzeichen={{ region: "", nummer: p.code, buchstaben: "" }} />
+                </div>
               </div>
               <div className="p-6">
                 <p className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gold-ink">

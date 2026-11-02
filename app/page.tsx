@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight, Building2, Flag, MapPin, ShieldCheck } from "lucide-react"
 import { Crest } from "@/components/site/crest"
-import { Plate } from "@/components/site/plate"
+import { KennzeichenBild } from "@/components/site/kennzeichen"
 import { NationalDay } from "@/components/site/national-day"
 import { SectionHeading } from "@/components/site/section-heading"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -123,7 +123,9 @@ function Services() {
             </p>
           </div>
           <div className="mt-10 flex flex-wrap items-end justify-between gap-6">
-            <Plate region="P" letters="CM" number="74" className="text-[2.4rem] transition-transform duration-500 group-hover:-rotate-2 sm:text-[3.4rem]" />
+            <div className="w-full max-w-sm transition-transform duration-500 group-hover:-rotate-2">
+              <KennzeichenBild kennzeichen={{ region: "P", nummer: "611", buchstaben: "IY" }} />
+            </div>
             <span className="inline-flex items-center gap-2 font-semibold text-gold">
               Jetzt ausprobieren <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </span>

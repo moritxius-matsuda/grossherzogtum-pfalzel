@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { ArrowRight } from "lucide-react"
 import { regions } from "@/lib/site-data"
+import { KennzeichenBild } from "./kennzeichen"
 
 export function RegionExplorer() {
   const params = useSearchParams()
@@ -63,8 +64,9 @@ export function RegionExplorer() {
         className="relative flex flex-col overflow-hidden rounded-2xl border border-line bg-card lg:sticky lg:top-24 lg:self-start"
       >
         <div className="paper-grain flex min-h-48 items-center justify-center bg-paper-2 p-8">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img key={active.code} src={active.plate} alt={`Kennzeichen ${active.code}`} className="h-16 w-auto animate-in fade-in zoom-in-95 sm:h-20" />
+          <div key={active.code} className="w-full max-w-md animate-in fade-in zoom-in-95">
+            <KennzeichenBild kennzeichen={{ region: active.code, nummer: "123", buchstaben: "AB" }} />
+          </div>
         </div>
         <div className="p-6 sm:p-8">
           <p className="eyebrow">
