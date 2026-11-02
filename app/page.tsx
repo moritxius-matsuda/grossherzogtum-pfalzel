@@ -235,7 +235,7 @@ function GrandDuke() {
             Reiches zu bewahren.
           </blockquote>
           <figcaption className="mt-8 flex items-center gap-4 border-t border-[#f1eadb]/15 pt-6">
-            <Crest className="h-10 w-auto" />
+            <Crest dunklerGrund className="h-10 w-auto" />
             <span className="text-sm text-[#f1eadb]/70">Leitgedanke des Großherzogtums</span>
           </figcaption>
         </figure>

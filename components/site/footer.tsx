@@ -10,7 +10,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-12 lg:px-8">
         <div className="md:col-span-5">
           <div className="flex items-center gap-4">
-            <Crest className="h-14 w-auto" />
+            <Crest dunklerGrund className="h-14 w-auto" />
             <div>
               <p className="font-serif text-2xl font-semibold tracking-tight">Großherzogtum Pfalzel</p>
               <p className="text-sm text-[#f1eadb]/60">Grand Duchy of Pfalzel · Grand-Duché de Pfalzel</p>

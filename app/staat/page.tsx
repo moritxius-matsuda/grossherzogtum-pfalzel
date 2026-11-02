@@ -45,8 +45,8 @@ export default function StaatPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-[auto_1fr] lg:px-8 lg:py-24">
           <div className="flex items-end justify-center gap-8">
             <figure className="text-center">
-              <Crest className="mx-auto h-56 w-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] sm:h-72" />
-              <figcaption className="mt-4 text-xs uppercase tracking-[0.2em] text-[#f1eadb]/60">Farbig</figcaption>
+              <Crest dunklerGrund className="mx-auto h-56 w-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] sm:h-72" />
+              <figcaption className="mt-4 text-xs uppercase tracking-[0.2em] text-[#f1eadb]/60">Auf dunklem Grund</figcaption>
             </figure>
             <figure className="text-center text-[#f1eadb]">
               <span className="block rounded-2xl bg-[#f1eadb] p-5 text-[#17130e]">
