@@ -96,16 +96,6 @@ export async function zeichneKennzeichen(canvas: HTMLCanvasElement, k: Kennzeich
   schreibe(k.buchstaben)
 }
 
-export async function kennzeichenHerunterladen(k: Kennzeichen) {
-  const canvas = document.createElement("canvas")
-  await zeichneKennzeichen(canvas, k)
-  const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"))
-  if (!blob) return
-  const url = URL.createObjectURL(blob)
-  Object.assign(document.createElement("a"), { href: url, download: `Kennzeichen_${formatKennzeichen(k).replace(/ /g, "-")}.png` }).click()
-  setTimeout(() => URL.revokeObjectURL(url), 30_000)
-}
-
 /** Kennzeichen als Bild, skaliert auf die Breite des Containers */
 export function KennzeichenBild({ kennzeichen, className = "" }: { kennzeichen: Kennzeichen; className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null)
@@ -121,7 +111,9 @@ export function KennzeichenBild({ kennzeichen, className = "" }: { kennzeichen: 
       role="img"
       aria-label={`Kennzeichen ${formatKennzeichen(kennzeichen)}`}
       data-no-translate
-      className={`block h-auto w-full rounded-[0.4rem] shadow-[0_0.6rem_1.4rem_-0.6rem_rgba(0,0,0,0.35)] ${className}`}
+      draggable={false}
+      onContextMenu={(e) => e.preventDefault()}
+      className={`block h-auto w-full select-none rounded-[0.4rem] shadow-[0_0.6rem_1.4rem_-0.6rem_rgba(0,0,0,0.35)] ${className}`}
       style={{ aspectRatio: `${W} / ${H}` }}
     />
   )

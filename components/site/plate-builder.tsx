@@ -1,10 +1,10 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { Check, Copy, Download, Shuffle, X } from "lucide-react"
-import { KennzeichenBild, kennzeichenHerunterladen } from "./kennzeichen"
+import { Check, Shuffle, X } from "lucide-react"
+import { KennzeichenBild } from "./kennzeichen"
 import { regions } from "@/lib/site-data"
-import { formatKennzeichen, parseSonder, zufallsKennzeichen, type Kennzeichen } from "@/lib/kennzeichen"
+import { parseSonder, zufallsKennzeichen, type Kennzeichen } from "@/lib/kennzeichen"
 
 type Modus = "regulaer" | "sonder"
 
@@ -14,7 +14,6 @@ export function PlateBuilder() {
   const [nummer, setNummer] = useState("611")
   const [buchstaben, setBuchstaben] = useState("IY")
   const [sonder, setSonder] = useState("M 213")
-  const [copied, setCopied] = useState(false)
 
   const sonderTeile = parseSonder(sonder)
   const rules = useMemo(
@@ -35,7 +34,6 @@ export function PlateBuilder() {
 
   const valid = rules.every((r) => r.ok)
   const kennzeichen: Kennzeichen | null = !valid ? null : modus === "regulaer" ? { region, nummer, buchstaben } : sonderTeile
-  const text = kennzeichen ? formatKennzeichen(kennzeichen) : ""
   const regionName = kennzeichen ? regions.find((r) => r.code === kennzeichen.region)?.name : undefined
 
   const shuffle = () => {
@@ -44,14 +42,6 @@ export function PlateBuilder() {
     setRegion(k.region)
     setNummer(k.nummer)
     setBuchstaben(k.buchstaben)
-  }
-
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(text)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
-    } catch {}
   }
 
   const field =
@@ -172,23 +162,6 @@ export function PlateBuilder() {
             className="inline-flex h-10 items-center gap-2 rounded-full border border-line px-4 text-sm font-medium hover:bg-paper-2"
           >
             <Shuffle className="size-4" /> Zufallskennzeichen
-          </button>
-          <button
-            type="button"
-            onClick={copy}
-            disabled={!valid}
-            className="inline-flex h-10 items-center gap-2 rounded-full border border-line px-4 text-sm font-medium hover:bg-paper-2 disabled:opacity-40"
-          >
-            {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
-            {copied ? "Kopiert" : "Kopieren"}
-          </button>
-          <button
-            type="button"
-            onClick={() => kennzeichen && kennzeichenHerunterladen(kennzeichen)}
-            disabled={!kennzeichen}
-            className="inline-flex h-10 items-center gap-2 rounded-full bg-ink px-4 text-sm font-semibold text-paper hover:bg-ink/85 disabled:opacity-40"
-          >
-            <Download className="size-4" /> Als Bild
           </button>
         </div>
         <p className="mt-6 text-xs leading-relaxed text-ink-soft">
