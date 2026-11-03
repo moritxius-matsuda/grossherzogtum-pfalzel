@@ -2,8 +2,8 @@ import { NextResponse } from "next/server"
 import { beitraege } from "@/lib/blog"
 
 // Suchindex für die Schnellsuche (Strg + K): Gesetze aus dem Gesetzesportal und Nachrichten.
-// Serverseitig abgerufen und 5 Minuten zwischengespeichert.
-export const revalidate = 300
+// Serverseitig abgerufen und 1 Minute zwischengespeichert.
+export const revalidate = 60
 
 const JUSTIZ = (process.env.JUSTIZ_URL || "https://justiz.pfalzel.gd").replace(/\/+$/, "")
 

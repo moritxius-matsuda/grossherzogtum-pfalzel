@@ -8,7 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { facts, faq, GOVID_URL, notices } from "@/lib/site-data"
 import { behoerde, beitraege, datumLang } from "@/lib/blog"
 
-export const revalidate = 300
+export const revalidate = 60
 
 export default function Home() {
   return (

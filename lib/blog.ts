@@ -1,9 +1,9 @@
 // Blogbeiträge aus dem Zentralregister (Verwaltung dort unter „Blogbeiträge“).
-// Abruf serverseitig über die öffentliche Schnittstelle des Zentralregisters, alle 5 Minuten aktualisiert.
+// Abruf serverseitig über die öffentliche Schnittstelle des Zentralregisters, jede Minute aktualisiert.
 import { authorities, type Authority } from "@/lib/site-data"
 
 const QUELLE = (process.env.BLOG_API_URL || "https://justiz.pfalzel.gd/api/blog/public").replace(/\/+$/, "")
-const AKTUALISIEREN = 300
+const AKTUALISIEREN = 60
 
 export type Beitrag = {
   slug: string

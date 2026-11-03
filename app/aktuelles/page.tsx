@@ -4,7 +4,7 @@ import { PageHero } from "@/components/site/section-heading"
 import { BeitragKarte } from "@/components/site/beitrag-karte"
 import { behoerde, beitraege } from "@/lib/blog"
 
-export const revalidate = 300
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: "Aktuelles",

@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react"
 import { BehoerdenMarke } from "@/components/site/beitrag-karte"
 import { behoerde, beitrag, bildUrl, datumLang } from "@/lib/blog"
 
-export const revalidate = 300
+export const revalidate = 60
 
 type Props = { params: Promise<{ slug: string }> }
 
