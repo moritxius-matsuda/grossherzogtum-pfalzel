@@ -16,20 +16,31 @@ export type Beitrag = {
   version: string | number
 }
 
+/**
+ * Abrufadresse mit Minuten-Stempel: Weder der Daten-Cache von Next.js noch der CDN-Cache vor dem
+ * Zentralregister können so eine alte Antwort (z. B. die leere Liste aus dem Build) länger als
+ * eine Minute festhalten.
+ */
+const frisch = (url: string) => `${url}${url.includes("?") ? "&" : "?"}t=${Math.floor(Date.now() / (AKTUALISIEREN * 1000))}`
+
 export async function beitraege(): Promise<Beitrag[]> {
   try {
-    const res = await fetch(QUELLE, { next: { revalidate: AKTUALISIEREN } })
-    if (!res.ok) return []
+    const res = await fetch(frisch(QUELLE), { next: { revalidate: AKTUALISIEREN } })
+    if (!res.ok) {
+      console.error(`Blogbeiträge: ${QUELLE} antwortet mit ${res.status}`)
+      return []
+    }
     const d = await res.json()
     return Array.isArray(d) ? d : []
-  } catch {
+  } catch (err) {
+    console.error("Blogbeiträge nicht abrufbar:", err)
     return []
   }
 }
 
 export async function beitrag(slug: string): Promise<Beitrag | null> {
   try {
-    const res = await fetch(`${QUELLE}/${encodeURIComponent(slug)}`, { next: { revalidate: AKTUALISIEREN } })
+    const res = await fetch(frisch(`${QUELLE}/${encodeURIComponent(slug)}`), { next: { revalidate: AKTUALISIEREN } })
     if (!res.ok) return null
     return (await res.json()) as Beitrag
   } catch {

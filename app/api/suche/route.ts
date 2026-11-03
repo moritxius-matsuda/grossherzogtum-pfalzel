@@ -11,7 +11,8 @@ type Gesetz = { id: number; titel: string; kurztitel: string | null; gesetznumme
 
 async function gesetze(): Promise<Gesetz[]> {
   try {
-    const res = await fetch(`${JUSTIZ}/api/gesetze/public`, { next: { revalidate } })
+    // Minuten-Stempel wie bei den Blogbeiträgen, damit keine veraltete Liste hängen bleibt
+    const res = await fetch(`${JUSTIZ}/api/gesetze/public?t=${Math.floor(Date.now() / (revalidate * 1000))}`, { next: { revalidate } })
     if (!res.ok) return []
     const d = await res.json()
     return Array.isArray(d) ? d : []
