@@ -6,6 +6,9 @@ import { NationalDay } from "@/components/site/national-day"
 import { SectionHeading } from "@/components/site/section-heading"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { facts, faq, GOVID_URL, notices } from "@/lib/site-data"
+import { behoerde, beitraege, datumLang } from "@/lib/blog"
+
+export const revalidate = 300
 
 export default function Home() {
   return (
@@ -178,19 +181,33 @@ function ServiceTile({ href, icon: Icon, title, text }: { href: string; icon: ty
   )
 }
 
-function NoticesAndCountdown() {
+async function NoticesAndCountdown() {
+  // Neueste Blogbeiträge aus dem Zentralregister; ohne Beiträge die festen Bekanntmachungen
+  const neu = (await beitraege()).slice(0, 4)
+  const eintraege = neu.length
+    ? neu.map((b) => ({
+        key: b.slug,
+        date: datumLang(b.veroeffentlicht_am),
+        tag: b.behoerde,
+        tagTitle: behoerde(b.behoerde)?.title,
+        title: b.titel,
+        text: b.teaser ?? "",
+        href: `/aktuelles/${b.slug}`,
+      }))
+    : notices.map((n) => ({ ...n, key: n.title, tagTitle: undefined }))
+
   return (
     <section className="border-y border-line bg-paper-2/60">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.6fr_1fr] lg:px-8">
         <div>
           <SectionHeading eyebrow="Amtliche Bekanntmachungen" title="Aktuelles aus dem Großherzogtum" />
           <ol className="mt-8 divide-y divide-line border-y border-line">
-            {notices.map((n) => (
-              <li key={n.title}>
+            {eintraege.map((n) => (
+              <li key={n.key}>
                 <Link href={n.href} className="group grid gap-2 py-5 sm:grid-cols-[9rem_1fr_auto] sm:items-baseline sm:gap-6">
                   <time className="text-sm tabular-nums text-ink-soft">{n.date}</time>
                   <span>
-                    <span className="mr-2 rounded-full border border-line px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-gold-ink">
+                    <span title={n.tagTitle} className="mr-2 rounded-full border border-line px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-gold-ink">
                       {n.tag}
                     </span>
                     <span className="font-serif text-xl font-medium group-hover:underline">{n.title}</span>
@@ -201,6 +218,11 @@ function NoticesAndCountdown() {
               </li>
             ))}
           </ol>
+          {neu.length > 0 && (
+            <Link href="/aktuelles" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-ink hover:underline">
+              Alle Nachrichten <ArrowRight className="size-4" />
+            </Link>
+          )}
         </div>
         <div className="lg:pt-16">
           <NationalDay />

@@ -6,6 +6,7 @@ export const nav = [
   { href: "/regierung", label: "Regierung" },
   { href: "/regionen", label: "Regionen" },
   { href: "/kennzeichen", label: "Kennzeichen" },
+  { href: "/aktuelles", label: "Aktuelles" },
 ] as const
 
 export const GOVID_URL = "https://govid.pfalzel.gd"

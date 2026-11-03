@@ -137,3 +137,18 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Text der Blogbeiträge (aus dem Zentralregister, Formatierungen des Editors) */
+.beitrag-text { font-size: 1.075rem; line-height: 1.75; color: var(--ink); }
+.beitrag-text > * + * { margin-top: 1.1em; }
+.beitrag-text h1, .beitrag-text h2, .beitrag-text h3 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; line-height: 1.2; margin-top: 1.8em; }
+.beitrag-text h1 { font-size: 2rem; }
+.beitrag-text h2 { font-size: 1.6rem; }
+.beitrag-text h3 { font-size: 1.3rem; }
+.beitrag-text ul { list-style: disc; padding-left: 1.4em; }
+.beitrag-text ol { list-style: decimal; padding-left: 1.4em; }
+.beitrag-text li + li { margin-top: 0.35em; }
+.beitrag-text blockquote { border-left: 3px solid var(--gold); padding-left: 1em; color: var(--ink-soft); font-style: italic; }
+.beitrag-text hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
+.beitrag-text mark { background: color-mix(in oklab, var(--gold) 55%, transparent); color: inherit; border-radius: 3px; padding: 0 0.15em; }
+.beitrag-text strong { font-weight: 650; }
