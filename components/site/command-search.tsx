@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
-import { ArrowUpRight, Building2, Car, Flag, Landmark, MapPin, Moon, ShieldCheck } from "lucide-react"
+import { ArrowUpRight, Building2, Car, Flag, Landmark, MapPin, Moon, Newspaper, Scale, ShieldCheck } from "lucide-react"
 import {
   CommandDialog,
   CommandEmpty,
@@ -24,12 +24,36 @@ const pages = [
   { href: "/regionen", label: "Regionen", icon: MapPin, keywords: "gebiete karte" },
   { href: "/kennzeichen", label: "Kennzeichensystem", icon: Car, keywords: "auto fahrzeug" },
   { href: "/kennzeichen#konfigurator", label: "Kennzeichen-Konfigurator", icon: Car, keywords: "prüfen erstellen" },
+  { href: "/aktuelles", label: "Aktuelles", icon: Newspaper, keywords: "nachrichten news blog bekanntmachungen" },
+  { href: "https://justiz.pfalzel.gd", label: "Gesetzesportal", icon: Scale, keywords: "gesetze recht verordnungen justiz" },
   { href: "/impressum", label: "Impressum", icon: Landmark, keywords: "kontakt anbieter rechtliches" },
 ]
+
+type Index = {
+  gesetze: { titel: string; kurztitel: string | null; nummer: string | null; kategorie: string | null; geltung: string; href: string }[]
+  beitraege: { titel: string; teaser: string | null; behoerde: string; datum: string; href: string }[]
+}
+
+const GELTUNG: Record<string, string> = {
+  in_kraft: "In Kraft",
+  beschlossen: "Noch nicht in Kraft",
+  ausser_kraft: "Außer Kraft",
+  aufgehoben: "Aufgehoben",
+}
 
 export function CommandSearch({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
   const router = useRouter()
   const { resolvedTheme, setTheme } = useTheme()
+  const [index, setIndex] = useState<Index | null>(null)
+
+  // Gesetze und Nachrichten erst beim ersten Öffnen laden
+  useEffect(() => {
+    if (!open || index) return
+    fetch("/api/suche")
+      .then((r) => (r.ok ? r.json() : { gesetze: [], beitraege: [] }))
+      .then(setIndex)
+      .catch(() => setIndex({ gesetze: [], beitraege: [] }))
+  }, [open, index])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -53,9 +77,9 @@ export function CommandSearch({ open, onOpenChange }: { open: boolean; onOpenCha
       open={open}
       onOpenChange={onOpenChange}
       title="Portal durchsuchen"
-      description="Seiten, Behörden und Regionen finden"
+      description="Seiten, Gesetze, Nachrichten, Behörden und Regionen finden"
     >
-      <CommandInput placeholder="Wonach suchen Sie? z. B. „Finanzen“, „PW“, „Flagge“" />
+      <CommandInput placeholder="Wonach suchen Sie? z. B. „Finanzen“, ein Gesetz oder eine Nachricht" />
       <CommandList className="max-h-[60vh]">
         <CommandEmpty>Keine Treffer.</CommandEmpty>
         <CommandGroup heading="Seiten">
@@ -66,6 +90,47 @@ export function CommandSearch({ open, onOpenChange }: { open: boolean; onOpenCha
             </CommandItem>
           ))}
         </CommandGroup>
+        {!!index?.gesetze.length && (
+          <>
+            <CommandSeparator />
+            <CommandGroup heading="Gesetze">
+              {index.gesetze.map((g) => (
+                <CommandItem
+                  key={g.href}
+                  value={`gesetz ${g.titel} ${g.kurztitel ?? ""} ${g.nummer ?? ""} ${g.kategorie ?? ""}`}
+                  onSelect={() => go(g.href)}
+                >
+                  <Scale />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate">{g.titel}</span>
+                    <span className="block truncate text-xs text-muted-foreground">
+                      {[g.kurztitel, g.nummer, GELTUNG[g.geltung]].filter(Boolean).join(" · ")}
+                    </span>
+                  </span>
+                  <ArrowUpRight className="opacity-50" />
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </>
+        )}
+        {!!index?.beitraege.length && (
+          <>
+            <CommandSeparator />
+            <CommandGroup heading="Nachrichten">
+              {index.beitraege.map((b) => (
+                <CommandItem key={b.href} value={`nachricht news ${b.titel} ${b.teaser ?? ""} ${b.behoerde}`} onSelect={() => go(b.href)}>
+                  <Newspaper />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate">{b.titel}</span>
+                    <span className="block truncate text-xs text-muted-foreground">
+                      {b.behoerde} · {new Date(b.datum).toLocaleDateString("de-DE", { day: "numeric", month: "long", year: "numeric" })}
+                    </span>
+                  </span>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </>
+        )}
         <CommandSeparator />
         <CommandGroup heading="Behörden">
           {authorities.map((a) => (

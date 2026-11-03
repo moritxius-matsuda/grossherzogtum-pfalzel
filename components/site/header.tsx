@@ -16,6 +16,9 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  // Tastenkürzel passend zum System anzeigen (⌘ K auf dem Mac)
+  const [mac, setMac] = useState(false)
+  useEffect(() => setMac(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)), [])
 
   useEffect(() => setMenuOpen(false), [pathname])
 
@@ -84,9 +87,14 @@ export function SiteHeader() {
             >
               <Search className="size-4" />
               Suchen
-              <kbd className="rounded border border-line bg-paper px-1.5 py-0.5 font-sans text-[10px] font-semibold">
-                Strg K
-              </kbd>
+              <span className="ml-1 flex items-center gap-0.5" aria-hidden>
+                <kbd className="inline-flex h-5 min-w-5 items-center justify-center whitespace-nowrap rounded border border-line bg-paper px-1 font-sans text-[10px] font-semibold leading-none">
+                  {mac ? "⌘" : "Strg"}
+                </kbd>
+                <kbd className="inline-flex h-5 min-w-5 items-center justify-center rounded border border-line bg-paper px-1 font-sans text-[10px] font-semibold leading-none">
+                  K
+                </kbd>
+              </span>
             </button>
             <button
               type="button"
