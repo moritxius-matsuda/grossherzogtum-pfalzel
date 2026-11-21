@@ -239,6 +239,9 @@ export function PfalzelKarte() {
                 <div><dt className="text-ink-soft">Umfang</dt><dd className="mt-1 font-medium tabular-nums">{info ? `${zahl(info.umfang, 1)} km` : "–"}</dd></div>
                 <div><dt className="text-ink-soft">Kürzel</dt><dd className="mt-1 font-plate text-xl">{aktiv.code}</dd></div>
               </dl>
+              {aktiv.officials && (
+                <p className="mt-4 text-sm"><span className="text-ink-soft">Amtsträger: </span><span className="font-medium">{aktiv.officials}</span></p>
+              )}
               <Link href="/kennzeichen#konfigurator" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold-ink hover:underline">
                 Kennzeichen für {aktiv.code} zusammenstellen <ArrowRight className="size-4" />
               </Link>

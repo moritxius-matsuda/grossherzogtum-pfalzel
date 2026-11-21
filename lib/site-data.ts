@@ -16,17 +16,85 @@ export const FOUNDING_DATE = { day: 9, month: 5, year: 2026 } // 9. Mai 2026
 export const facts = [
   { label: "Gegründet", value: "9. Mai 2026" },
   { label: "Staatsform", value: "Konstitutionell-absolutistische Monarchie" },
-  { label: "Staatsoberhaupt", value: "Großherzog Lukas Meier" },
+  { label: "Staatsoberhaupt", value: "Großherzog Lukas Patrick Meier" },
   { label: "Regionen", value: "8" },
   { label: "Ministerien", value: "14" },
   { label: "Länderdomain", value: ".gd" },
+]
+
+/** Steckbrief auf „Staat & Symbole“ */
+export const steckbrief = [
+  { label: "Amtlicher Name", value: "Großherzogtum Pfalzel" },
+  { label: "Staatsform", value: "Konstitutionell-absolutistische Monarchie" },
+  { label: "Staatsoberhaupt", value: "Großherzog Lukas Patrick Meier" },
+  { label: "Regierungschef", value: "Premierminister Moritz Béla Meier" },
+  { label: "Parlament", value: "4 Sitze, gewählt für 4 Jahre" },
+  { label: "Hauptstadt", value: "Pfalzeler Hauptstadt" },
+  { label: "Amtssprache", value: "Deutsch" },
+  { label: "Anerkannte Regionalsprachen", value: "Englisch, Französisch" },
+  { label: "Einwohnerbezeichnung", value: "Pfalzeler" },
+  { label: "Religion", value: "Säkularer Staat" },
+  { label: "Hymne", value: "Hymne des Großherzogtums Pfalzel" },
+  { label: "Währung", value: "Pfalzeler Krone (Kr)" },
+  { label: "Unabhängigkeit", value: "9. Mai 2026" },
+  { label: "Verfassung", value: "11. Mai 2026" },
+  { label: "Zeitzone", value: "MEZ (UTC+1), Sommerzeit MESZ (UTC+2)" },
+  { label: "Datumsformat", value: "TT.MM.JJJJ" },
+  { label: "Straßenverkehr", value: "Rechtsverkehr" },
+  { label: "Telefonvorwahl", value: "+49" },
+  { label: "Länderdomain", value: ".gd" },
+  { label: "Verwaltung", value: "8 Bezirke, 14 Ministerien" },
+]
+
+/** Kernpunkte der Verfassung vom 11. Mai 2026 */
+export const verfassung = [
+  {
+    artikel: "Art. 2",
+    titel: "Die Staatsgewalt",
+    text: "Oberster Träger der Staatsgewalt ist der Großherzog. Alle Staatsorgane handeln in seinem Namen. Er kann Verordnungen mit Gesetzeskraft erlassen, die Regierung ernennen und entlassen, das Parlament auflösen und übt die letzte richterliche Überprüfung aus.",
+  },
+  {
+    artikel: "Art. 3",
+    titel: "Acht Bezirke",
+    text: "Das Staatsgebiet gliedert sich in acht Bezirke – von der Pfalzeler Hauptstadt über die Waldgebiete bis zum Hafen und den Inselgebieten an der Mosel.",
+  },
+  {
+    artikel: "Grundrechte",
+    titel: "Freiheit und Würde",
+    text: "Die Verfassung schützt die Würde des Menschen, die Meinungsfreiheit und die Privatsphäre und gewährt ausdrücklich das Recht auf reproduktive Selbstbestimmung (Art. 17).",
+  },
+  {
+    artikel: "Parlament",
+    titel: "Die Volksvertretung",
+    text: "Das Parlament hat vier Sitze. Seine Mitglieder werden nach Wahl- und Parlamentsgesetz für vier Jahre in unmittelbarer, allgemeiner, gleicher und geheimer Wahl bestimmt. Parteien gibt es derzeit nicht.",
+  },
+  {
+    artikel: "Art. 39, 40, 43",
+    titel: "Sicherheit und Verteidigung",
+    text: "Das Großherzogtum darf Sicherheits- und Streitkräfte für Zivilschutz und Landesverteidigung unterhalten; den Oberbefehl hat der Großherzog. Der Wehrdienst ist freiwillig.",
+  },
+  {
+    artikel: "Gesetze",
+    titel: "StAGP, WahlG, ParlG, StGB",
+    text: "Das Staatsangehörigkeitsgesetz regelt Geburt, Abstammung und Einbürgerung. Das Strafgesetzbuch setzt vorrangig auf Geldbußen, gemeinnützige Arbeit und den Entzug von Rechten.",
+  },
 ]
 
 export const timeline = [
   {
     date: "9. Mai 2026",
     title: "Unabhängigkeitserklärung",
-    text: "Das Großherzogtum Pfalzel erklärt seine Souveränität. Der 9. Mai wird zum Nationalfeiertag.",
+    text: "Das Großherzogtum Pfalzel erklärt seine Souveränität und beansprucht die gesamte historische Gemarkung Pfalzel. Der 9. Mai wird zum Nationalfeiertag.",
+  },
+  {
+    date: "11. Mai 2026",
+    title: "Verfassung",
+    text: "Großherzog Lukas Patrick Meier setzt die Verfassung des Großherzogtums Pfalzel in Kraft – mit Grundrechten, der Ordnung der Staatsgewalt und den acht Bezirken. Der 11. Mai ist seitdem Tag der Verfassung.",
+  },
+  {
+    date: "Juni 2026",
+    title: "Staatsangehörigkeit, Wahlen, Parlament",
+    text: "Mit dem Staatsangehörigkeitsgesetz (StAGP), dem Wahlgesetz (WahlG) und dem Parlamentsgesetz (ParlG) erhält der Staat seine wichtigsten Grundgesetze.",
   },
   {
     date: "2026",
@@ -111,6 +179,8 @@ export type Region = {
   type: string
   description: string
   plate: string
+  /** Amtsträger der Region, soweit ernannt */
+  officials?: string
 }
 
 export const regions: Region[] = [
@@ -131,6 +201,7 @@ export const regions: Region[] = [
   {
     code: "BW",
     name: "Bauscher Waldgebiete",
+    officials: "Landgräfin des hohen Berges",
     type: "Waldgebiet",
     description: "Waldreiche Region im Norden des Großherzogtums mit bedeutender ökologischer Vielfalt.",
     plate: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/BW-1-sjG4v9Gp09CEsApsszWZUY5qWHZl8X.png",
@@ -138,6 +209,7 @@ export const regions: Region[] = [
   {
     code: "B",
     name: "Auf der Bausch",
+    officials: "Landgräfin des hohen Berges",
     type: "Region",
     description: "Historisches Gebiet mit traditioneller Architektur und landwirtschaftlicher Bedeutung.",
     plate: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/B-1-iwJHcskoO8oC4trc0ywikaem79sssr.png",
@@ -145,6 +217,7 @@ export const regions: Region[] = [
   {
     code: "IT",
     name: "Inneres Territorium",
+    officials: "Vogt der langen Straße",
     type: "Kerngebiet",
     description: "Kerngebiet des Großherzogtums mit wichtigen administrativen Einrichtungen.",
     plate: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IT-1-cSadUImPrgilnEb8YlvDh1K53Mom7D.png",
@@ -210,7 +283,7 @@ export const authorities: Authority[] = [
     title: "Großherzog von Pfalzel",
     abbreviation: "GD",
     english: "Grand Duke of Pfalzel",
-    description: "Repräsentatives und konstitutives Staatsoberhaupt. Wahrt die Kontinuität der Krone und verkörpert die Einheit des Staates.",
+    description: "Staatsoberhaupt und oberster Träger der Staatsgewalt (Art. 2 der Verfassung). Erlässt Verordnungen mit Gesetzeskraft, ernennt und entlässt die Regierung, kann das Parlament auflösen und hat den Oberbefehl über die Streitkräfte.",
     logo: logo("logo-grossherzog.png"),
     group: "Staatsorgan",
   },
@@ -218,7 +291,7 @@ export const authorities: Authority[] = [
     title: "Premierminister",
     abbreviation: "PM",
     english: "Prime Minister",
-    description: "Führt die Staatsregierung, bestimmt die Richtlinien der Politik und koordiniert die Arbeit aller Ministerien.",
+    description: "Vom Großherzog ernannt. Führt die Staatsregierung, bestimmt die Richtlinien der Politik und koordiniert die Arbeit aller Ministerien.",
     logo: logo("logo-premierminister.png"),
     group: "Staatsorgan",
   },
@@ -226,7 +299,7 @@ export const authorities: Authority[] = [
     title: "Großherzogliches Parlament",
     abbreviation: "GDPL",
     english: "Grand Ducal Parliament",
-    description: "Gewählte Volksvertretung. Übt die gesetzgebende Gewalt aus, beschließt den Haushalt und kontrolliert die Regierung.",
+    description: "Gewählte Volksvertretung mit vier Sitzen, gewählt für vier Jahre in unmittelbarer, allgemeiner, gleicher und geheimer Wahl. Teilt sich die Gesetzgebung mit dem Großherzog und kontrolliert die Regierung.",
     logo: logo("logo-parlament.png"),
     group: "Staatsorgan",
   },
@@ -234,7 +307,7 @@ export const authorities: Authority[] = [
     title: "Großherzogliches Ministerium des Inneren",
     abbreviation: "GMI",
     english: "Grand Ducal Ministry of the Interior",
-    description: "Sorgt für innere Sicherheit, Ordnung und die Verwaltung des Landes.",
+    description: "Sorgt für innere Sicherheit und Ordnung, führt das Personenstandswesen, stellt Ausweise und Pässe aus und setzt das Staatsangehörigkeitsgesetz um.",
     logo: logo("Logo_GMI.png"),
     group: "Ministerium",
     area: "Staat & Recht",
@@ -243,7 +316,7 @@ export const authorities: Authority[] = [
     title: "Großherzogliches Ministerium für Auswärtige Angelegenheiten",
     abbreviation: "GMAA",
     english: "Grand Ducal Ministry of Foreign Affairs",
-    description: "Vertritt das Großherzogtum international und pflegt diplomatische Beziehungen.",
+    description: "Vertritt das Großherzogtum mit einer friedlichen Außenpolitik, pflegt diplomatische Beziehungen und schließt internationale Verträge.",
     logo: logo("Logo_GMAA.png"),
     group: "Ministerium",
     area: "Staat & Recht",
@@ -252,7 +325,7 @@ export const authorities: Authority[] = [
     title: "Ministerium der Finanzen",
     abbreviation: "MF",
     english: "Ministry of Finance",
-    description: "Verwaltet die Staatskasse und verantwortet Haushalt, Steuern und finanzielle Stabilität.",
+    description: "Verwaltet die Staatskasse, verantwortet Haushalt und Steuern und beaufsichtigt die Pfalzeler Staatsbank.",
     logo: logo("Logo_MF.png"),
     group: "Ministerium",
     area: "Wirtschaft & Infrastruktur",
@@ -261,7 +334,7 @@ export const authorities: Authority[] = [
     title: "Ministerium der Justiz",
     abbreviation: "MJ",
     english: "Ministry of Justice",
-    description: "Garantiert die Einhaltung der Gesetze, leitet das Gerichtswesen und wacht über den Rechtsstaat.",
+    description: "Führt das Rechtsregister mit allen Gesetzen, organisiert die Gerichte und wacht über den Rechtsstaat.",
     logo: logo("Logo_MJ.png"),
     group: "Ministerium",
     area: "Staat & Recht",
@@ -270,7 +343,7 @@ export const authorities: Authority[] = [
     title: "Ministerium der Verteidigung",
     abbreviation: "MV",
     english: "Ministry of Defence",
-    description: "Verantwortet die äußere Sicherheit des Landes und führt die Streitkräfte.",
+    description: "Verantwortet die Verteidigung und die Unversehrtheit des Staatsgebiets. Der Wehrdienst ist freiwillig.",
     logo: logo("Logo_MV.png"),
     group: "Ministerium",
     area: "Staat & Recht",
@@ -306,7 +379,7 @@ export const authorities: Authority[] = [
     title: "Hofministerium",
     abbreviation: "GDC",
     english: "Ministry of the Grand Ducal Court",
-    description: "Organisiert die Angelegenheiten des Großherzogs und verbindet die Krone mit den Institutionen.",
+    description: "Führt den großherzoglichen Haushalt, richtet Staatszeremonien aus und betreut die Ritterorden sowie das Hausgesetz des Hauses Meier.",
     logo: logo("Logo_GDC.png"),
     group: "Ministerium",
     area: "Staat & Recht",
@@ -315,7 +388,7 @@ export const authorities: Authority[] = [
     title: "Ministerium für Wirtschaft und Energie",
     abbreviation: "MWE",
     english: "Ministry of Economic Affairs and Energy",
-    description: "Stärkt die heimische Wirtschaft, fördert Unternehmen und sichert die Energieversorgung.",
+    description: "Führt das Gewerberegister, stärkt die heimische Wirtschaft und sichert die Energieversorgung.",
     logo: logo("Logo_MWE.png"),
     group: "Ministerium",
     area: "Wirtschaft & Infrastruktur",
@@ -333,7 +406,7 @@ export const authorities: Authority[] = [
     title: "Ministerium für Umwelt und Landwirtschaft",
     abbreviation: "MUL",
     english: "Ministry of Environment and Agriculture",
-    description: "Wahrt die natürlichen Lebensgrundlagen, schützt das Klima und fördert nachhaltige Landwirtschaft.",
+    description: "Wahrt die natürlichen Lebensgrundlagen, betreut Forst und Landwirtschaft im Pfalzeler Wald und in den Bauscher Waldgebieten und fördert nachhaltige Landwirtschaft.",
     logo: logo("Logo_MUL.png"),
     group: "Ministerium",
     area: "Wirtschaft & Infrastruktur",
@@ -364,11 +437,23 @@ export const authorityUrl = (a: Pick<Authority, "abbreviation">) =>
 export const faq = [
   {
     q: "Was ist das Großherzogtum Pfalzel?",
-    a: "Eine Mikronation in Form einer konstitutionell-absolutistischen Monarchie, gegründet am 9. Mai 2026. Staatsoberhaupt ist Großherzog Lukas Meier von Pfalzel.",
+    a: "Eine Mikronation in Form einer konstitutionell-absolutistischen Monarchie im Westen Deutschlands, gegründet am 9. Mai 2026. Sie umfasst die gesamte historische Gemarkung Pfalzel an der Mosel. Staatsoberhaupt ist Großherzog Lukas Patrick Meier.",
   },
   {
     q: "Wann ist der Nationalfeiertag?",
-    a: "Jedes Jahr am 9. Mai, dem Tag der Unabhängigkeitserklärung. Den Countdown finden Sie auf der Startseite.",
+    a: "Jedes Jahr am 9. Mai, dem Tag der Unabhängigkeitserklärung. Zwei Tage später, am 11. Mai, folgt der Tag der Verfassung. Den Countdown finden Sie auf der Startseite.",
+  },
+  {
+    q: "Wie werde ich Staatsbürger?",
+    a: "Das Staatsangehörigkeitsgesetz (StAGP) regelt den Erwerb durch Geburt, durch Abstammung und durch Einbürgerung. Anträge stellen Sie über die GovID.",
+  },
+  {
+    q: "Welche Sprachen werden gesprochen?",
+    a: "Amtssprache ist Deutsch. Englisch und Französisch sind als Regionalsprachen anerkannt.",
+  },
+  {
+    q: "Gibt es politische Parteien?",
+    a: "Derzeit nicht. Das Parlament hat vier Sitze; seine Mitglieder werden für vier Jahre unmittelbar vom Volk gewählt.",
   },
   {
     q: "Wie sind die Kennzeichen aufgebaut?",

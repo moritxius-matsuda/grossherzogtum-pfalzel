@@ -2,11 +2,11 @@ import type { Metadata } from "next"
 import { Crest } from "@/components/site/crest"
 import { FlagExplorer } from "@/components/site/flag-explorer"
 import { PageHero, SectionHeading } from "@/components/site/section-heading"
-import { timeline } from "@/lib/site-data"
+import { steckbrief, timeline, verfassung } from "@/lib/site-data"
 
 export const metadata: Metadata = {
   title: "Staat & Symbole",
-  description: "Nationalflagge, Wappen und Chronik des Großherzogtums Pfalzel.",
+  description: "Steckbrief, Verfassung, Nationalflagge, Wappen und Chronik des Großherzogtums Pfalzel.",
 }
 
 export default function StaatPage() {
@@ -19,6 +19,8 @@ export default function StaatPage() {
       >
         <nav className="mt-10 flex flex-wrap gap-2 text-sm" aria-label="Auf dieser Seite">
           {[
+            ["#steckbrief", "Steckbrief"],
+            ["#verfassung", "Verfassung"],
             ["#flagge", "Nationalflagge"],
             ["#wappen", "Wappen"],
             ["#chronik", "Chronik"],
@@ -29,6 +31,63 @@ export default function StaatPage() {
           ))}
         </nav>
       </PageHero>
+
+      <section id="steckbrief" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Steckbrief"
+              title="Das Großherzogtum auf einen Blick"
+              intro="Von der Staatsform bis zur Uhrzeit – die wichtigsten Angaben zum Staat."
+            />
+            <blockquote className="mt-10 border-l-4 border-gold pl-5">
+              <p className="font-serif text-2xl leading-snug tracking-tight text-balance">„Ordnung, Stabilität, Freiheit, Gerechtigkeit und Wohlstand“</p>
+              <footer className="mt-2 text-sm text-ink-soft">Wahlspruch des Großherzogtums</footer>
+            </blockquote>
+            <div className="mt-10 rounded-2xl border border-line bg-card p-6">
+              <p className="eyebrow">Herkunft des Namens</p>
+              <p className="mt-3 leading-relaxed text-ink-soft">
+                „Pfalzel“ geht auf das lateinische <em>palatiolum</em> zurück – „kleiner Palast“. Der Name erinnert an die
+                tiefen Wurzeln des Ortes im Rheinland und gibt der historischen Gemarkung Pfalzel, die das Großherzogtum
+                vollständig umfasst, ihren Namen.
+              </p>
+            </div>
+          </div>
+          <dl className="grid content-start gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
+            {steckbrief.map((e) => (
+              <div key={e.label} className="bg-card px-5 py-4">
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-soft">{e.label}</dt>
+                <dd className="mt-1 font-medium">{e.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section id="verfassung" className="border-y border-line bg-paper-2">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <SectionHeading
+            eyebrow="Verfassung"
+            title="Die Ordnung des Staates"
+            intro="Am 11. Mai 2026 hat Großherzog Lukas Patrick Meier die Verfassung des Großherzogtums Pfalzel in Kraft gesetzt. Sie regelt Souveränität, Grundrechte und den Aufbau der Staatsgewalt."
+          />
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {verfassung.map((v) => (
+              <article key={v.titel} className="rounded-2xl border border-line bg-card p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold-ink">{v.artikel}</p>
+                <h3 className="mt-2 font-serif text-xl font-medium tracking-tight">{v.titel}</h3>
+                <p className="mt-2 leading-relaxed text-ink-soft">{v.text}</p>
+              </article>
+            ))}
+          </div>
+          <a
+            href="https://justiz.pfalzel.gd"
+            className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 font-semibold text-paper transition-colors hover:bg-ink/85"
+          >
+            Verfassung und Gesetze im Gesetzesportal lesen ↗
+          </a>
+        </div>
+      </section>
 
       <section id="flagge" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <SectionHeading
