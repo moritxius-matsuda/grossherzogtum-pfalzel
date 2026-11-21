@@ -184,7 +184,7 @@ export function PfalzelKarte() {
   const knopf = "inline-flex h-10 items-center gap-2 rounded-full border border-line bg-card/95 px-4 text-sm font-medium shadow-sm backdrop-blur transition-colors hover:border-ink/30"
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start">
       <div
         ref={rahmen}
         className={vollbild ? "fixed inset-0 z-[60] bg-paper" : "relative overflow-hidden rounded-2xl border border-line"}
