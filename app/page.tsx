@@ -15,11 +15,50 @@ export default function Home() {
     <>
       <Hero />
       <Facts />
+      <Landschaft />
       <Services />
       <NoticesAndCountdown />
       <GrandDuke />
       <Faq />
     </>
+  )
+}
+
+/** Blick über Pfalzel – führt zur Karte der Regionen */
+function Landschaft() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <Link
+        href="/regionen"
+        className="group grid overflow-hidden rounded-2xl border border-line bg-card transition-shadow hover:shadow-xl lg:grid-cols-[1fr_1.5fr]"
+        aria-label="Das Großherzogtum auf der Karte erkunden"
+      >
+        <div className="flex flex-col justify-center gap-4 p-8 sm:p-10">
+          <p className="eyebrow">Land & Landschaft</p>
+          <h2 className="font-serif text-3xl font-medium leading-tight tracking-tight text-balance sm:text-4xl">
+            Zwischen Mosel, Wald und Altstadt
+          </h2>
+          <p className="leading-relaxed text-ink-soft">
+            Von den Höhen über Pfalzel reicht der Blick über die Dächer der Hauptstadt, die Mosel und die Wälder bis
+            weit ins Land. Entdecken Sie alle acht Regionen auf der Karte.
+          </p>
+          <span className="inline-flex items-center gap-2 font-semibold text-gold-ink">
+            Auf der Karte erkunden <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+          </span>
+        </div>
+        <figure className="relative min-h-72 overflow-hidden lg:min-h-[26rem]">
+          <img
+            src="/bilder/pfalzel-panorama.jpg"
+            alt="Blick von oben über Pfalzel mit Kirchturm, Mosel und bewaldeten Hügeln"
+            className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+          <figcaption className="absolute bottom-3 right-3 rounded-full bg-black/55 px-3 py-1 text-xs text-white backdrop-blur">
+            © Viktoria Dick, 2026
+          </figcaption>
+        </figure>
+      </Link>
+    </section>
   )
 }
 
@@ -105,7 +144,7 @@ function Facts() {
 function Services() {
   const tiles = [
     { href: "/regierung", icon: Building2, title: "Behördenverzeichnis", text: "3 Staatsorgane und 14 Ministerien – durchsuchbar." },
-    { href: "/regionen", icon: MapPin, title: "Regionen", text: "Acht Gebiete von der Hauptstadt bis zu den Inseln." },
+    { href: "/regionen", icon: MapPin, title: "Regionen & Karte", text: "Acht Gebiete von der Hauptstadt bis zu den Inseln – auf der Karte erkunden." },
     { href: "/staat#flagge", icon: Flag, title: "Flagge & Wappen", text: "Was Gold, Rot, Schwarz und die vier Sterne bedeuten." },
   ]
   return (

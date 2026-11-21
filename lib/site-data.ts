@@ -4,8 +4,7 @@ export const nav = [
   { href: "/", label: "Start" },
   { href: "/staat", label: "Staat & Symbole" },
   { href: "/regierung", label: "Regierung" },
-  { href: "/regionen", label: "Regionen" },
-  { href: "/karte", label: "Karte" },
+  { href: "/regionen", label: "Regionen & Karte" },
   { href: "/kennzeichen", label: "Kennzeichen" },
   { href: "/aktuelles", label: "Aktuelles" },
   { href: "https://justiz.pfalzel.gd", label: "Gesetzesportal" },
@@ -16,7 +15,7 @@ export const FOUNDING_DATE = { day: 9, month: 5, year: 2026 } // 9. Mai 2026
 
 export const facts = [
   { label: "Gegründet", value: "9. Mai 2026" },
-  { label: "Staatsform", value: "Konstitutionelle Monarchie" },
+  { label: "Staatsform", value: "Konstitutionell-absolutistische Monarchie" },
   { label: "Staatsoberhaupt", value: "Großherzog Lukas Meier" },
   { label: "Regionen", value: "8" },
   { label: "Ministerien", value: "14" },
@@ -365,7 +364,7 @@ export const authorityUrl = (a: Pick<Authority, "abbreviation">) =>
 export const faq = [
   {
     q: "Was ist das Großherzogtum Pfalzel?",
-    a: "Eine Mikronation in Form einer konstitutionellen Monarchie, gegründet am 9. Mai 2026. Staatsoberhaupt ist Großherzog Lukas Meier von Pfalzel.",
+    a: "Eine Mikronation in Form einer konstitutionell-absolutistischen Monarchie, gegründet am 9. Mai 2026. Staatsoberhaupt ist Großherzog Lukas Meier von Pfalzel.",
   },
   {
     q: "Wann ist der Nationalfeiertag?",

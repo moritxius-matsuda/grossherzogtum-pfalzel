@@ -75,7 +75,7 @@ export function PfalzelKarte() {
 
   const gewaehlt = params.get("r")
   const aktiv = regions.find((r) => r.code === gewaehlt) ?? null
-  const waehlen = useCallback((code: string | null) => router.replace(code ? `/karte?r=${code}` : "/karte", { scroll: false }), [router])
+  const waehlen = useCallback((code: string | null) => router.replace(code ? `/regionen?r=${code}` : "/regionen", { scroll: false }), [router])
 
   useEffect(() => {
     fetch("/geo/pfalzel.json").then((r) => r.json()).then((d) => setGeo(d.features)).catch(() => setGeo([]))
@@ -239,8 +239,8 @@ export function PfalzelKarte() {
                 <div><dt className="text-ink-soft">Umfang</dt><dd className="mt-1 font-medium tabular-nums">{info ? `${zahl(info.umfang, 1)} km` : "–"}</dd></div>
                 <div><dt className="text-ink-soft">Kürzel</dt><dd className="mt-1 font-plate text-xl">{aktiv.code}</dd></div>
               </dl>
-              <Link href={`/regionen?r=${aktiv.code}`} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold-ink hover:underline">
-                Mehr über {aktiv.name} <ArrowRight className="size-4" />
+              <Link href="/kennzeichen#konfigurator" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold-ink hover:underline">
+                Kennzeichen für {aktiv.code} zusammenstellen <ArrowRight className="size-4" />
               </Link>
             </div>
           </article>
