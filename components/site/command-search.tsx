@@ -22,6 +22,7 @@ const pages = [
   { href: "/staat#chronik", label: "Chronik", icon: Flag, keywords: "geschichte gründung unabhängigkeit" },
   { href: "/regierung", label: "Regierung & Behörden", icon: Building2, keywords: "ministerien parlament" },
   { href: "/regionen", label: "Regionen", icon: MapPin, keywords: "gebiete karte" },
+  { href: "/karte", label: "Karte von Pfalzel", icon: MapPin, keywords: "karte map grenzen gebiet erkunden standort" },
   { href: "/kennzeichen", label: "Kennzeichensystem", icon: Car, keywords: "auto fahrzeug" },
   { href: "/kennzeichen#konfigurator", label: "Kennzeichen-Konfigurator", icon: Car, keywords: "prüfen erstellen" },
   { href: "/aktuelles", label: "Aktuelles", icon: Newspaper, keywords: "nachrichten news blog bekanntmachungen" },

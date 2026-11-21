@@ -60,18 +60,18 @@ export function SiteHeader() {
             </span>
           </Link>
 
-          <nav className="ml-auto hidden lg:block" aria-label="Hauptnavigation">
+          <nav className="ml-auto hidden xl:block" aria-label="Hauptnavigation">
             <ul className="flex items-center gap-1">
               {nav.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    className="relative whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-ink-soft transition-colors hover:text-ink aria-[current=page]:text-ink"
+                    className="relative whitespace-nowrap rounded-full px-2 py-2 text-[0.8125rem] 2xl:px-3 2xl:text-sm font-medium text-ink-soft transition-colors hover:text-ink aria-[current=page]:text-ink"
                   >
                     {item.label}
                     {isActive(item.href) && (
-                      <span className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-gold" aria-hidden />
+                      <span className="absolute inset-x-2 -bottom-0.5 2xl:inset-x-3 h-0.5 rounded-full bg-gold" aria-hidden />
                     )}
                   </Link>
                 </li>
@@ -79,11 +79,11 @@ export function SiteHeader() {
             </ul>
           </nav>
 
-          <div className="ml-auto flex items-center gap-1 lg:ml-4">
+          <div className="ml-auto flex items-center gap-1 xl:ml-3">
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="hidden h-9 items-center gap-2 rounded-full border border-line bg-card pl-3 pr-2 text-sm text-ink-soft transition-colors hover:border-ink/30 hover:text-ink xl:inline-flex"
+              className="hidden h-9 items-center gap-2 rounded-full border border-line bg-card pl-3 pr-2 text-sm text-ink-soft transition-colors hover:border-ink/30 hover:text-ink 2xl:inline-flex"
             >
               <Search className="size-4" />
               Suchen
@@ -99,7 +99,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="inline-flex size-9 items-center justify-center rounded-full text-ink-soft hover:bg-paper-2 xl:hidden"
+              className="inline-flex size-9 items-center justify-center rounded-full text-ink-soft hover:bg-paper-2 2xl:hidden"
               aria-label="Suchen"
             >
               <Search className="size-4" />
@@ -120,7 +120,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
-              className="inline-flex size-10 items-center justify-center rounded-full hover:bg-paper-2 lg:hidden"
+              className="inline-flex size-10 items-center justify-center rounded-full hover:bg-paper-2 xl:hidden"
               aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
@@ -133,7 +133,7 @@ export function SiteHeader() {
         {menuOpen && (
           <div
             id="mobile-nav"
-            className="absolute inset-x-0 top-full z-40 h-[calc(100dvh-4.5rem)] overflow-y-auto bg-paper px-4 pb-10 pt-6 animate-in fade-in slide-in-from-top-2 lg:hidden"
+            className="absolute inset-x-0 top-full z-40 h-[calc(100dvh-4.5rem)] overflow-y-auto bg-paper px-4 pb-10 pt-6 animate-in fade-in slide-in-from-top-2 xl:hidden"
           >
             <nav aria-label="Mobile Navigation">
               <ol className="divide-y divide-line border-y border-line">

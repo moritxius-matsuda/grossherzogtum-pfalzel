@@ -5,6 +5,7 @@ export const nav = [
   { href: "/staat", label: "Staat & Symbole" },
   { href: "/regierung", label: "Regierung" },
   { href: "/regionen", label: "Regionen" },
+  { href: "/karte", label: "Karte" },
   { href: "/kennzeichen", label: "Kennzeichen" },
   { href: "/aktuelles", label: "Aktuelles" },
   { href: "https://justiz.pfalzel.gd", label: "Gesetzesportal" },
