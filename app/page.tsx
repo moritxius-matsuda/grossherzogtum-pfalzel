@@ -5,7 +5,7 @@ import { KennzeichenBild } from "@/components/site/kennzeichen"
 import { NationalDay } from "@/components/site/national-day"
 import { SectionHeading } from "@/components/site/section-heading"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { facts, faq, GOVID_URL, notices } from "@/lib/site-data"
+import { facts, faq, geschichte, GOVID_URL, notices } from "@/lib/site-data"
 import { behoerde, beitraege, datumLang } from "@/lib/blog"
 
 export const revalidate = 60
@@ -16,6 +16,7 @@ export default function Home() {
       <Hero />
       <Facts />
       <Landschaft />
+      <Geschichte />
       <Services />
       <NoticesAndCountdown />
       <GrandDuke />
@@ -58,6 +59,44 @@ function Landschaft() {
           </figcaption>
         </figure>
       </Link>
+    </section>
+  )
+}
+
+/** Geschichte Pfalzels – von der Römerzeit bis zur Staatsausrufung */
+function Geschichte() {
+  return (
+    <section id="geschichte" className="border-y border-line bg-paper-2">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <SectionHeading
+            eyebrow="Geschichte"
+            title="Mehr als sechzehn Jahrhunderte an der Mosel"
+            intro="Vom römischen Palast über Kloster, Burg und Festung bis zum eigenen Staat: Pfalzel ist seit der Spätantike ununterbrochen besiedelt."
+          />
+          <Link href="/staat#chronik" className="inline-flex items-center gap-2 font-semibold text-gold-ink hover:underline">
+            Chronik des Großherzogtums <ArrowRight className="size-4" />
+          </Link>
+        </div>
+        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {geschichte.map((g) => (
+            <li
+              key={g.zeit}
+              className={`rounded-2xl border p-6 ${g.heute ? "border-crimson/40 bg-card ring-1 ring-crimson/20 sm:col-span-2 lg:col-span-3" : "border-line bg-card"}`}
+            >
+              <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <span className={`font-serif text-2xl tabular-nums ${g.heute ? "text-crimson" : "text-gold-ink"}`}>{g.zeit}</span>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink-soft">{g.epoche}</span>
+              </p>
+              <h3 className="mt-2 font-serif text-xl font-medium tracking-tight">{g.titel}</h3>
+              <p className="mt-2 leading-relaxed text-ink-soft">{g.text}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-8 text-xs text-ink-soft">
+          Quelle zur Ortsgeschichte: Wikipedia, Artikel „Trier-Pfalzel“.
+        </p>
+      </div>
     </section>
   )
 }

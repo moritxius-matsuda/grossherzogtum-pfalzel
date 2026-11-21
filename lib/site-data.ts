@@ -28,7 +28,7 @@ export const steckbrief = [
   { label: "Staatsform", value: "Konstitutionell-absolutistische Monarchie" },
   { label: "Staatsoberhaupt", value: "Großherzog Lukas Patrick Meier" },
   { label: "Regierungschef", value: "Premierminister Moritz Béla Meier" },
-  { label: "Parlament", value: "4 Sitze, gewählt für 4 Jahre" },
+  { label: "Parlament", value: "5 Abgeordnete, gewählt für 4 Jahre" },
   { label: "Hauptstadt", value: "Pfalzeler Hauptstadt" },
   { label: "Amtssprache", value: "Deutsch" },
   { label: "Anerkannte Regionalsprachen", value: "Englisch, Französisch" },
@@ -66,7 +66,7 @@ export const verfassung = [
   {
     artikel: "Parlament",
     titel: "Die Volksvertretung",
-    text: "Das Parlament hat vier Sitze. Seine Mitglieder werden nach Wahl- und Parlamentsgesetz für vier Jahre in unmittelbarer, allgemeiner, gleicher und geheimer Wahl bestimmt. Parteien gibt es derzeit nicht.",
+    text: "Das Parlament besteht aus fünf Abgeordneten. Sie werden nach Wahl- und Parlamentsgesetz für vier Jahre in unmittelbarer, allgemeiner, gleicher und geheimer Wahl bestimmt. Parteien gibt es derzeit nicht.",
   },
   {
     artikel: "Art. 39, 40, 43",
@@ -77,6 +77,65 @@ export const verfassung = [
     artikel: "Gesetze",
     titel: "StAGP, WahlG, ParlG, StGB",
     text: "Das Staatsangehörigkeitsgesetz regelt Geburt, Abstammung und Einbürgerung. Das Strafgesetzbuch setzt vorrangig auf Geldbußen, gemeinnützige Arbeit und den Entzug von Rechten.",
+  },
+]
+
+/** Geschichte Pfalzels – von der römischen Palastanlage bis zur Staatsausrufung (Startseite) */
+export const geschichte = [
+  {
+    zeit: "um 350",
+    epoche: "Römerzeit",
+    titel: "Das Palatiolum",
+    text: "Zum Schutz vor Überfällen der Franken entsteht an der Mosel eine palastartige Festung, wohl eng verbunden mit dem Kaiserhof in Trier. Ihr Name – palatiolum, die kleine Pfalz – lebt bis heute in „Pfalzel“ fort. Teile ihrer Mauern stehen noch.",
+  },
+  {
+    zeit: "um 700",
+    epoche: "Frühmittelalter",
+    titel: "Adula und das Kloster",
+    text: "Adula von Pfalzel gründet in den Mauern des Palatiolums ein Frauenkloster. Die Südostecke der Anlage wird zur Kirche umgebaut – der Ursprung der Stiftskirche.",
+  },
+  {
+    zeit: "1027",
+    epoche: "Mittelalter",
+    titel: "Stift und erzbischöfliche Burg",
+    text: "Erzbischof Poppo von Babenberg wandelt das Kloster in ein Kanonikerstift um. Im 12. Jahrhundert beginnt Erzbischof Albero den Bau einer Burg; Pfalzel wird zur Ausweichresidenz der Trierer Erzbischöfe.",
+  },
+  {
+    zeit: "1346",
+    epoche: "Spätmittelalter",
+    titel: "Stadtrecht",
+    text: "Die Siedlung rund um Burg und Stift, durch eine eigene Mauer geschützt, erhält das Stadtrecht.",
+  },
+  {
+    zeit: "1539",
+    epoche: "Frühe Neuzeit",
+    titel: "Die Wallmauer",
+    text: "Eine mächtige Festung mit sechs Bastionen umschließt den erzbischöflichen Teil des Ortes. Als Sitz eines kurtrierischen Amtes verwaltet Pfalzel 54 Ortschaften rund um Trier.",
+  },
+  {
+    zeit: "1673/74",
+    epoche: "Kriege Ludwigs XIV.",
+    titel: "Die Festung fällt",
+    text: "Französische Truppen besetzen Trier und machen die Befestigungen Pfalzels unbrauchbar. Die Moselbastion ist bis heute gut erhalten.",
+  },
+  {
+    zeit: "1815",
+    epoche: "Preußische Zeit",
+    titel: "Bürgermeisterei Pfalzel",
+    text: "Nach der französischen Zeit, in der Pfalzel Hauptort eines Kantons war, wird es Sitz einer preußischen Bürgermeisterei, zu der auch Biewer und Ehrang gehören.",
+  },
+  {
+    zeit: "1969",
+    epoche: "Bundesrepublik",
+    titel: "Teil der Stadt Trier",
+    text: "1968 schließen sich Pfalzel und Ehrang/Quint zu einer Gemeinde zusammen, die am 7. Juni 1969 in die Stadt Trier eingegliedert wird.",
+  },
+  {
+    zeit: "9. Mai 2026",
+    epoche: "Großherzogtum",
+    titel: "Ausrufung des Großherzogtums",
+    text: "Das Großherzogtum Pfalzel erklärt seine Unabhängigkeit und beansprucht die gesamte historische Gemarkung. Zwei Tage später, am 11. Mai 2026, tritt die Verfassung in Kraft.",
+    heute: true,
   },
 ]
 
@@ -299,7 +358,7 @@ export const authorities: Authority[] = [
     title: "Großherzogliches Parlament",
     abbreviation: "GDPL",
     english: "Grand Ducal Parliament",
-    description: "Gewählte Volksvertretung mit vier Sitzen, gewählt für vier Jahre in unmittelbarer, allgemeiner, gleicher und geheimer Wahl. Teilt sich die Gesetzgebung mit dem Großherzog und kontrolliert die Regierung.",
+    description: "Gewählte Volksvertretung aus fünf Abgeordneten, gewählt für vier Jahre in unmittelbarer, allgemeiner, gleicher und geheimer Wahl. Teilt sich die Gesetzgebung mit dem Großherzog und kontrolliert die Regierung.",
     logo: logo("logo-parlament.png"),
     group: "Staatsorgan",
   },
@@ -453,7 +512,7 @@ export const faq = [
   },
   {
     q: "Gibt es politische Parteien?",
-    a: "Derzeit nicht. Das Parlament hat vier Sitze; seine Mitglieder werden für vier Jahre unmittelbar vom Volk gewählt.",
+    a: "Derzeit nicht. Das Parlament besteht aus fünf Abgeordneten; sie werden für vier Jahre unmittelbar vom Volk gewählt.",
   },
   {
     q: "Wie sind die Kennzeichen aufgebaut?",
