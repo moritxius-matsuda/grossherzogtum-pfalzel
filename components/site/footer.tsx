@@ -58,6 +58,13 @@ export function SiteFooter() {
               </a>
             </li>
           </ul>
+          <p className="mt-5 max-w-xs text-xs leading-relaxed text-[#f1eadb]/55">
+            Mit Ihrer Anfrage übermitteln Sie uns personenbezogene Daten. Wie wir diese verarbeiten, steht in unserer{" "}
+            <Link href="/datenschutz" className="underline underline-offset-2 hover:text-white">
+              Datenschutzerklärung
+            </Link>
+            .
+          </p>
         </div>
       </div>
       <div className="border-t border-white/10">
@@ -67,7 +74,9 @@ export function SiteFooter() {
             <Link href="/impressum" className="hover:text-white">
               Impressum
             </Link>
-            <span>Datenschutz</span>
+            <Link href="/datenschutz" className="hover:text-white">
+              Datenschutz
+            </Link>
           </p>
         </div>
       </div>

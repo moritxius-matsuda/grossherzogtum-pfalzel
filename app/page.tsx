@@ -21,6 +21,7 @@ export default function Home() {
       <NoticesAndCountdown />
       <GrandDuke />
       <Faq />
+      <DatenschutzHinweis />
     </>
   )
 }
@@ -366,6 +367,23 @@ function Faq() {
           ))}
         </Accordion>
       </div>
+    </section>
+  )
+}
+
+/** Kurzhinweis zum Datenschutz (Langfassung unter /datenschutz) */
+function DatenschutzHinweis() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 pt-10 sm:px-6 lg:px-8">
+      <p className="max-w-4xl text-sm leading-relaxed text-ink-soft">
+        <strong className="font-semibold text-ink">Datenschutz:</strong> Registerdaten verarbeiten wir erst mit
+        Ihrem persönlichen Einbürgerungsantrag und Ihrer unterschriebenen Einwilligung. Registerdaten bleiben bis zu Ihrem
+        Antrag auf Löschung gespeichert. In GovID sehen Sie Ihr Profil und Ihre Anträge und können Ihre Daten jederzeit
+        löschen. Auskunft erhalten Sie unter{" "}
+        <a href="mailto:info@pfalzel.gd" className="underline underline-offset-2 hover:text-ink">info@pfalzel.gd</a>. Mehr in
+        der{" "}
+        <Link href="/datenschutz" className="underline underline-offset-2 hover:text-ink">Datenschutzerklärung</Link>.
+      </p>
     </section>
   )
 }
