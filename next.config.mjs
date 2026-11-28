@@ -6,6 +6,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [{ source: "/regierungsbehorden", destination: "/regierung", permanent: true }]
+  },
 }
 
 export default nextConfig
