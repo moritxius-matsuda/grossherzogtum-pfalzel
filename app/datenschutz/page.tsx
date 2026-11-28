@@ -265,8 +265,9 @@ const abschnitte: Abschnitt[] = [
   },
   {
     id: "einsicht",
-    titel: "Einsicht in Ihre Daten und Auszüge",
+    titel: "Einsicht, Auskunft und Auszüge",
     inhalt: (
+      <>
       <p>
         In{" "}
         <a href={GOVID_URL} className="font-medium text-ink underline decoration-gold underline-offset-2">
@@ -274,10 +275,23 @@ const abschnitte: Abschnitt[] = [
         </a>{" "}
         sehen Sie Ihre persönlichen Daten, Meldeadressen und Anträge. Über „Auszug anfordern“ können Sie einen Auszug
         aus dem Melde- oder Personenregister beantragen. Dieser wird als eigene Akte erstellt und erscheint nicht
-        automatisch in Ihrem Profil. GovID zeigt daher nicht jede über Sie gespeicherte Information. Eine vollständige
-        Auskunft nach Art. 15 DSGVO erhalten Sie kostenlos unter <Mail />. Unter „Datenschutz“ in GovID können Sie Ihre
-        Daten außerdem jederzeit selbst löschen.
+        automatisch in Ihrem Profil.
       </p>
+      <p>
+        <strong>DSGVO-Auskunft:</strong> Unter „Datenschutz“ in GovID können Sie jederzeit selbst eine vollständige
+        Auskunft nach Art. 15 DSGVO erstellen. Sie enthält alle über Sie gespeicherten Daten aus allen Datenbanken:
+        Personen- und Melderegister, alle weiteren Register, Anträge, das Verzeichnis Ihrer Akten, das Protokoll, wer
+        Ihre Daten wann bearbeitet hat, Ihr Staatsbank-Konto mit Umsätzen und Ihr GovID-Anmeldekonto. Dazu kommen die
+        Angaben nach Art. 15 Abs. 1 DSGVO (Zwecke, Empfänger, Speicherdauer, Herkunft, Ihre Rechte). Sie erhalten die
+        Auskunft als lesbare Datei zum Ansehen und Drucken und als maschinenlesbare JSON-Datei (Art. 20 DSGVO). Vorher
+        bestätigen Sie gegebenenfalls Ihre Anmeldung. Ohne GovID-Konto erstellt das Ministerium des Inneren die
+        Auskunft auf Anfrage an <Mail /> im Zentralregister, kostenlos und innerhalb eines Monats. Jede erstellte
+        Auskunft wird protokolliert.
+      </p>
+      <p>
+        Unter „Datenschutz“ in GovID können Sie Ihre Daten außerdem jederzeit selbst löschen.
+      </p>
+      </>
     ),
   },
   {
@@ -338,7 +352,9 @@ const abschnitte: Abschnitt[] = [
     titel: "Datensicherheit",
     inhalt: (
       <p>
-        Alle Verbindungen sind verschlüsselt (HTTPS). Der Zugriff auf die Register ist nach Rollen beschränkt und wird
+        Alle Daten in allen unseren Datenbanken sind verschlüsselt gespeichert (Verschlüsselung der Datenträger mit
+        AES-256). Das gilt für die Register, die Staatsbank, die Anmeldedaten und die Sicherungskopien. Alle
+        Verbindungen sind verschlüsselt (HTTPS/TLS). Der Zugriff auf die Register ist nach Rollen beschränkt und wird
         protokolliert. Vor der Löschung in GovID ist eine erneute Anmeldung nötig. Unterschriebene Formulare werden
         verschlossen aufbewahrt.
       </p>

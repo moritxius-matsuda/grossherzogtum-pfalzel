@@ -378,7 +378,7 @@ function DatenschutzHinweis() {
       <p className="max-w-4xl text-sm leading-relaxed text-ink-soft">
         <strong className="font-semibold text-ink">Datenschutz:</strong> Registerdaten verarbeiten wir erst mit
         Ihrem persönlichen Einbürgerungsantrag und Ihrer unterschriebenen Einwilligung. Registerdaten bleiben bis zu Ihrem
-        Antrag auf Löschung gespeichert. In GovID sehen Sie Ihr Profil und Ihre Anträge und können Ihre Daten jederzeit
+        Antrag auf Löschung gespeichert. In GovID sehen Sie Ihr Profil und Ihre Anträge, erstellen eine vollständige DSGVO-Auskunft und können Ihre Daten jederzeit
         löschen. Auskunft erhalten Sie unter{" "}
         <a href="mailto:info@pfalzel.gd" className="underline underline-offset-2 hover:text-ink">info@pfalzel.gd</a>. Mehr in
         der{" "}
